@@ -56,7 +56,6 @@ namespace wp_super_snow // Root namespace.
 					add_action('wp_loaded', array($this, 'actions'));
 
 					add_action('wp_head', array($this, 'enqueue_scripts'), -1);
-					add_action('wp_footer', array($this, 'footer_scripts'), PHP_INT_MAX);
 
 					add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_styles'));
 					add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_scripts'));
@@ -145,25 +144,18 @@ namespace wp_super_snow // Root namespace.
 
 					$deps = array('jquery'); // Dependencies.
 
+					$options = '<script type="text/javascript">';
+					$options .= 'window.wpSuperSnowOptions = {';
+					$options .= " flake: '".$this->esc_sq($this->options['flake'])."',";
+					$options .= " flakeFontFamily: '".$this->esc_sq($this->options['flake_font_family'])."',";
+					$options .= " particles: '".$this->esc_sq($this->options['particles'])."',";
+					$options .= " size: '".$this->esc_sq($this->options['size'])."',";
+					$options .= " zIndex: '".$this->esc_sq($this->options['z_index'])."'";
+					$options .= '};</script>';
+
+					echo apply_filters(__METHOD__.'__options', $options);
+
 					wp_enqueue_script(__NAMESPACE__, $this->url('/client-s/js/wp-super-snow.min.js'), $deps, $this->version, TRUE);
-				}
-
-			public function footer_scripts()
-				{
-					if(!$this->options['enable'])
-						return; // Nothing to do.
-
-					$scripts = '<script type="text/javascript">';
-					$scripts .= ' wpSuperSnow({';
-					$scripts .= "    flake: '".$this->esc_sq($this->options['flake'])."',";
-					$scripts .= "    flakeFontFamily: '".$this->esc_sq($this->options['flake_font_family'])."',";
-					$scripts .= "    particles: '".$this->esc_sq($this->options['particles'])."',";
-					$scripts .= "    size: '".$this->esc_sq($this->options['size'])."',";
-					$scripts .= "    zIndex: '".$this->esc_sq($this->options['z_index'])."'";
-					$scripts .= ' });';
-					$scripts .= '</script>';
-
-					echo apply_filters(__METHOD__, $scripts);
 				}
 
 			public function enqueue_admin_styles()
