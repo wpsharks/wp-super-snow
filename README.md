@@ -1,4 +1,3 @@
-WP-Super-Snow
-=============
+## WP Super Snow
 
-The perfect additional to any WordPress site during the holidays.
+Beautiful falling snow plugin for any WordPress holiday or Christmas site.
