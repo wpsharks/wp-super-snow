@@ -56,7 +56,7 @@ namespace wp_super_snow // Root namespace.
 					add_action('wp_loaded', array($this, 'actions'));
 
 					add_action('wp_head', array($this, 'enqueue_scripts'), -1);
-					add_action('wp_footer', array($this, 'footer_scripts'));
+					add_action('wp_footer', array($this, 'footer_scripts'), PHP_INT_MAX);
 
 					add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_styles'));
 					add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_scripts'));
