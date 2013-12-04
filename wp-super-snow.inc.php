@@ -41,7 +41,7 @@ namespace wp_super_snow // Root namespace.
 						'container'                 => 'body',
 						'flake'                     => '*',
 						'flake_font_family'         => 'serif',
-						'particles'                 => '75',
+						'flakes'                    => '75',
 						'size'                      => '75',
 						'z_index'                   => '9999999',
 
@@ -155,7 +155,7 @@ namespace wp_super_snow // Root namespace.
 							     "     $('".$_this->esc_sq($_this->options['container'])."').wpSuperSnow({"."\n".
 							     "        flake: '".$_this->esc_sq($_this->options['flake'])."',"."\n".
 							     "        flakeFontFamily: '".$_this->esc_sq($_this->options['flake_font_family'])."',"."\n".
-							     "        particles: '".$_this->esc_sq($_this->options['particles'])."',"."\n".
+							     "        flakes: '".$_this->esc_sq($_this->options['flakes'])."',"."\n".
 							     "        size: '".$_this->esc_sq($_this->options['size'])."',"."\n".
 							     "        zIndex: '".$_this->esc_sq($_this->options['z_index'])."'"."\n".
 							     "     });"."\n".

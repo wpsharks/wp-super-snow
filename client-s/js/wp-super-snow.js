@@ -5,7 +5,7 @@
 		$.fn.wpSuperSnow = function(options) // Start snowing.
 			{
 				var i, css = '', $head = $('head'), $body = $('body'), $container,
-					defaults = {flake: '*', flakeFontFamily: 'serif', particles: 75, size: 75, zIndex: 9999999},
+					defaults = {flake: '*', flakeFontFamily: 'serif', flakes: 75, size: 75, zIndex: 9999999},
 					winds = ['wpSuperSnowL', 'wpSuperSnowR'];
 
 				options = $.extend({}, defaults, options); // Extend default options.
@@ -16,7 +16,7 @@
 				return this.each // A jQuery object array; we iterate all items.
 				(function() // Each of these are containers sharing the same `options`.
 				 {
-					 for($container = $(this), i = 1; i <= options.particles; i++) // Snowflakes.
+					 for($container = $(this), i = 1; i <= options.flakes; i++) // Snowflakes.
 						 $container.append('<div class="wp-super-snow-flake">' + options.flake + '</div>');
 
 					 $('.wp-super-snow-flake', $container).each // Snowflakes.
@@ -49,12 +49,12 @@
 					  });
 				 });
 			};
-		$.wpSuperSnowCSS = '@keyframes wpSuperSnowL {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; transform:translate3D(100px,1500px,0); rotate(250deg);}}';
-		$.wpSuperSnowCSS += '@keyframes wpSuperSnowR {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; transform:translate3D(-100px,1500px,0); rotate(-500deg);}}';
+		$.wpSuperSnowCSS = '@keyframes wpSuperSnowL {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; transform:translate3D(100px,1500px,0) rotate(250deg);}}';
+		$.wpSuperSnowCSS += '@keyframes wpSuperSnowR {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; transform:translate3D(-100px,1500px,0) rotate(-500deg);}}';
 
-		$.wpSuperSnowCSS += '@-webkit-keyframes wpSuperSnowL {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; -webkit-transform:translate3D(100px,1500px,0); rotate(250deg);}}';
-		$.wpSuperSnowCSS += '@-webkit-keyframes wpSuperSnowR {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; -webkit-transform:translate3D(-100px,1500px,0); rotate(-500deg);}}';
+		$.wpSuperSnowCSS += '@-webkit-keyframes wpSuperSnowL {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; -webkit-transform:translate3D(100px,1500px,0) rotate(250deg);}}';
+		$.wpSuperSnowCSS += '@-webkit-keyframes wpSuperSnowR {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; -webkit-transform:translate3D(-100px,1500px,0) rotate(-500deg);}}';
 
-		$.wpSuperSnowCSS += '@-moz-keyframes wpSuperSnowL {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; -moz-transform:translate3D(100px,1500px,0); rotate(250deg);}}';
-		$.wpSuperSnowCSS += '@-moz-keyframes wpSuperSnowR {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; -moz-transform:translate3D(-100px,1500px,0); rotate(-500deg);}}';
+		$.wpSuperSnowCSS += '@-moz-keyframes wpSuperSnowL {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; -moz-transform:translate3D(100px,1500px,0) rotate(250deg);}}';
+		$.wpSuperSnowCSS += '@-moz-keyframes wpSuperSnowR {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; -moz-transform:translate3D(-100px,1500px,0) rotate(-500deg);}}';
 	})(jQuery);
