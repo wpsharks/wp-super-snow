@@ -38,6 +38,7 @@ namespace wp_super_snow // Root namespace.
 
 						'enable'                    => '1', // `0|1`.
 
+						'container'                 => 'body',
 						'flake'                     => '*',
 						'flake_font_family'         => 'serif',
 						'particles'                 => '75',
@@ -144,18 +145,23 @@ namespace wp_super_snow // Root namespace.
 
 					$deps = array('jquery'); // Dependencies.
 
-					$options = '<script type="text/javascript">';
-					$options .= 'window.wpSuperSnowOptions = {';
-					$options .= " flake: '".$this->esc_sq($this->options['flake'])."',";
-					$options .= " flakeFontFamily: '".$this->esc_sq($this->options['flake_font_family'])."',";
-					$options .= " particles: '".$this->esc_sq($this->options['particles'])."',";
-					$options .= " size: '".$this->esc_sq($this->options['size'])."',";
-					$options .= " zIndex: '".$this->esc_sq($this->options['z_index'])."'";
-					$options .= '};</script>';
-
-					echo apply_filters(__METHOD__.'__options', $options);
-
 					wp_enqueue_script(__NAMESPACE__, $this->url('/client-s/js/wp-super-snow.min.js'), $deps, $this->version, TRUE);
+
+					$_this = $this; // Reference used below.
+					add_action('wp_footer', function () use ($_this)
+						{
+							echo '<script type="text/javascript">'."\n".
+							     "  jQuery(document).ready(function($){"."\n".
+							     "     $('".$_this->esc_sq($_this->options['container'])."').wpSuperSnow({"."\n".
+							     "        flake: '".$_this->esc_sq($_this->options['flake'])."',"."\n".
+							     "        flakeFontFamily: '".$_this->esc_sq($_this->options['flake_font_family'])."',"."\n".
+							     "        particles: '".$_this->esc_sq($_this->options['particles'])."',"."\n".
+							     "        size: '".$_this->esc_sq($_this->options['size'])."',"."\n".
+							     "        zIndex: '".$_this->esc_sq($_this->options['z_index'])."'"."\n".
+							     "     });"."\n".
+							     "  });"."\n".
+							     '</script>'."\n";
+						}, PHP_INT_MAX);
 				}
 
 			public function enqueue_admin_styles()

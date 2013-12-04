@@ -2,52 +2,59 @@
 	{
 		'use strict'; // Strict standards.
 
-		$(document).ready( // On DOM ready handler.
-			function() // Normally this is called ONE time only.
+		$.fn.wpSuperSnow = function(options) // Start snowing.
 			{
-				var _i, css = '', $window = $(window), $document = $(document), $body = $('body'),
+				var i, css = '', $head = $('head'), $body = $('body'), $container,
 					defaults = {flake: '*', flakeFontFamily: 'serif', particles: 75, size: 75, zIndex: 9999999},
 					winds = ['wpSuperSnowL', 'wpSuperSnowR'];
 
-				var options = (typeof window.wpSuperSnowOptions === 'object') ? window.wpSuperSnowOptions : {};
-				options = $.extend({}, defaults, options);
+				options = $.extend({}, defaults, options); // Extend default options.
 
-				css += '@keyframes wpSuperSnowL {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; transform:translate3D(100px,1500px,0) rotate(250deg);}}';
-				css += '@keyframes wpSuperSnowR {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; transform:translate3D(-100px,1500px,0) rotate(-500deg);}}';
+				if($.wpSuperSnowCSS) // This property is emptied each time; e.g. we do this ONE-time-only.
+					$head.append('<style type="text/css">' + $.wpSuperSnowCSS + '</style>'), $.wpSuperSnowCSS = '';
 
-				css += '@-webkit-keyframes wpSuperSnowL {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; -webkit-transform:translate3D(100px,1500px,0) rotate(250deg);}}';
-				css += '@-webkit-keyframes wpSuperSnowR {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; -webkit-transform:translate3D(-100px,1500px,0) rotate(-500deg);}}';
+				return this.each // A jQuery object array; we iterate all items.
+				(function() // Each of these are containers sharing the same `options`.
+				 {
+					 for($container = $(this), i = 1; i <= options.particles; i++) // Snowflakes.
+						 $container.append('<div class="wp-super-snow-flake">' + options.flake + '</div>');
 
-				css += '@-moz-keyframes wpSuperSnowL {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; -moz-transform:translate3D(100px,1500px,0) rotate(250deg);}}';
-				css += '@-moz-keyframes wpSuperSnowR {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; -moz-transform:translate3D(-100px,1500px,0) rotate(-500deg);}}';
+					 $('.wp-super-snow-flake', $container).each // Snowflakes.
+					 (function() // Iterating each snowflake inside this container.
+					  {
+						  var duration = (Math.random() * 10) + 20;
+						  var left = Math.round(Math.random() * 100);
+						  var visibility = Math.round(Math.random() * 10);
+						  var delay = Math.round(Math.random() * duration);
+						  var wind = winds[Math.round(Math.random() * winds.length)];
+						  var size = Math.round(Math.random() * options.size) + 8;
 
-				$('head').append('<style type="text/css">' + css + '</style>');
-				for(_i = 1; _i <= options.particles; _i++) $body.append('<div class="wp-super-snow">' + options.flake + '</div>');
+						  $(this).css // Let it snow...
+						  ({'width': size + 'px', 'height': size + 'px',
 
-				$('div.wp-super-snow').each( // Particles.
-					function()
-					{
-						var duration = (Math.random() * 10) + 20;
-						var left = Math.round(Math.random() * 100);
-						var visibility = Math.round(Math.random() * 10);
-						var delay = Math.round(Math.random() * duration);
-						var wind = winds[Math.round(Math.random() * winds.length)];
-						var size = Math.round(Math.random() * options.size) + 8;
+							   'font-family': options.flakeFontFamily,
+							   'font-size'  : size + 'px', 'line-height': size + 'px',
+							   'color'      : 'rgba(255,255,255,.' + visibility + ')',
+							   'text-shadow': '0 0 10px rgba(255,255,255,.' + visibility + ')',
 
-						$(this).css({'font-size'    : size,
-							            'font-family': options.flakeFontFamily,
-							            'color'      : 'rgba(255,255,255,.' + visibility + ')',
-							            'text-shadow': '0 0 10px rgba(255,255,255,.' + visibility + ')',
+							   'position': 'fixed',
+							   'z-index' : options.zIndex,
+							   'left'    : left + '%', 'top': '0',
+							   'opacity' : '0',
 
-							            'position': 'fixed',
-							            'z-index' : options.zIndex,
-							            'left'    : left + '%', 'top': '0',
-							            'opacity' : '0',
+							   'animation'        : wind + ' ' + duration + 's infinite', 'animation-delay': delay + 's',
+							   '-webkit-animation': wind + ' ' + duration + 's infinite', '-webkit-animation-delay': delay + 's',
+							   '-moz-animation'   : wind + ' ' + duration + 's infinite', '-moz-animation-delay': delay + 's'
+						   });
+					  });
+				 });
+			};
+		$.wpSuperSnowCSS = '@keyframes wpSuperSnowL {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; transform:translate3D(100px,1500px,0); rotate(250deg);}}';
+		$.wpSuperSnowCSS += '@keyframes wpSuperSnowR {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; transform:translate3D(-100px,1500px,0); rotate(-500deg);}}';
 
-							            'animation'        : wind + ' ' + duration + 's infinite', 'animation-delay': delay + 's',
-							            '-webkit-animation': wind + ' ' + duration + 's infinite', '-webkit-animation-delay': delay + 's',
-							            '-moz-animation'   : wind + ' ' + duration + 's infinite', '-moz-animation-delay': delay + 's'
-						            });
-					});
-			});
+		$.wpSuperSnowCSS += '@-webkit-keyframes wpSuperSnowL {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; -webkit-transform:translate3D(100px,1500px,0); rotate(250deg);}}';
+		$.wpSuperSnowCSS += '@-webkit-keyframes wpSuperSnowR {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; -webkit-transform:translate3D(-100px,1500px,0); rotate(-500deg);}}';
+
+		$.wpSuperSnowCSS += '@-moz-keyframes wpSuperSnowL {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; -moz-transform:translate3D(100px,1500px,0); rotate(250deg);}}';
+		$.wpSuperSnowCSS += '@-moz-keyframes wpSuperSnowR {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0; -moz-transform:translate3D(-100px,1500px,0); rotate(-500deg);}}';
 	})(jQuery);
