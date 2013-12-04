@@ -40,7 +40,7 @@ This is an awesome free Christmas snow falling plugin with jQuery and CSS3; very
 
 == Frequently Asked Questions ==
 
-= How can I change the size of each snow flake (and other options)? =
+= Can I change the size of each snow flake (and other options)? =
 
 Yes, please check your Dashboard under: **WP Super Snow -› Virtual Snow Blower**.
 
