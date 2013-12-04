@@ -69,7 +69,7 @@ namespace wp_super_snow // Root namespace.
 					echo '   </div>'."\n";
 
 					echo '   <div class="plugin-menu-page-panel-body'.((!plugin()->options['enable']) ? ' open' : '').' clearfix">'."\n";
-					echo '      <p style="float:right; margin:-5px 0 0 0; font-weight:bold;">WP Super Snow = <i class="fa fa-group fa-4x"></i> happy visitors<em>!</em></p>'."\n";
+					echo '      <p style="float:right; margin:-5px 0 0 0; font-weight:bold;">WP Super Snow = <i class="fa fa-smile-o fa-4x"></i> happy visitors<em>!</em></p>'."\n";
 					echo '      <p style="margin-top:1em;"><label class="switch-primary"><input type="radio" name="'.esc_attr(__NAMESPACE__).'[save_options][enable]" value="1"'.checked(plugin()->options['enable'], '1', FALSE).' /> <i class="fa fa-magic fa-flip-horizontal"></i> '.__('Yes, enable WP Super Snow!', plugin()->text_domain).'</label> &nbsp;&nbsp;&nbsp; <label><input type="radio" name="'.esc_attr(__NAMESPACE__).'[save_options][enable]" value="0"'.checked(plugin()->options['enable'], '0', FALSE).' /> '.__('No, disable.', plugin()->text_domain).'</label></p>'."\n";
 					echo '   </div>'."\n";
 
@@ -100,17 +100,25 @@ namespace wp_super_snow // Root namespace.
 					echo '   </div>'."\n";
 
 					echo '   <div class="plugin-menu-page-panel-body clearfix">'."\n";
-					echo '      <div class="plugin-virtual-snow-blower"></div>'."\n";
-					echo '      <i class="fa fa-gears fa-4x" style="float:right; margin: 0 0 0 25px;"></i>'."\n";
-					echo '      <button type="button" class="plugin-virtual-snow-blower-preview" style="float:right; margin: 0 0 0 25px;"><i class="fa fa-eye"></i> Preview</button>'."\n";
-					echo '      <h3>'.__('Virtual Snow Blower — Configure WP Super Snow!', plugin()->text_domain).'</h3>'."\n";
-					echo '      <p>'.__('The options below support an advanced configuration of WP Super Snow. The defaults work just fine; but you might like to change things up just a bit. It\'s fun. <i class="fa fa-smile-o"></i>', plugin()->text_domain).'</p>'."\n";
-					echo '      <hr />'."\n";
-					echo '      <h3>'.__('Use Snow Flake Transparency Effects?', plugin()->text_domain).'</h3>'."\n";
-					echo '      <p><select name="'.esc_attr(__NAMESPACE__).'[save_options][use_flake_trans]" style="display:table;">'."\n";
-					echo '            <option value="1"'.selected(plugin()->options['use_flake_trans'], '1', FALSE).'>'.__('Yes, add flake transparency effects (recommended for best visual experience).', plugin()->text_domain).'</option>'."\n";
-					echo '            <option value="0"'.selected(plugin()->options['use_flake_trans'], '0', FALSE).'>'.__('No, don\'t use image transparency (recommended for improved performance; speedier).', plugin()->text_domain).'</option>'."\n";
-					echo '         </select></p>'."\n";
+					echo '      <table style="width:100%;">'."\n";
+					echo '         <tbody>'."\n";
+					echo '            <tr>'."\n";
+					echo '               <td style="width:100%;">'."\n";
+					echo '                  <i class="fa fa-gears fa-4x" style="float:right; margin: 0 0 0 25px;"></i>'."\n";
+					echo '                  <button type="button" class="plugin-virtual-snow-blower-preview" style="float:right; margin: 0 0 0 25px;"><i class="fa fa-eye"></i> Preview</button>'."\n";
+					echo '                  <h3>'.__('Virtual Snow Blower — Configure WP Super Snow!', plugin()->text_domain).'</h3>'."\n";
+					echo '                  <p>'.__('The options below support an advanced configuration of WP Super Snow. The defaults work just fine; but you might like to change things up just a bit. It\'s fun. <i class="fa fa-smile-o"></i>', plugin()->text_domain).'</p>'."\n";
+					echo '                  <hr />'."\n";
+					echo '                  <h3>'.__('Use Snow Flake Transparency Effects?', plugin()->text_domain).'</h3>'."\n";
+					echo '                  <p><select name="'.esc_attr(__NAMESPACE__).'[save_options][use_flake_trans]">'."\n";
+					echo '                        <option value="1"'.selected(plugin()->options['use_flake_trans'], '1', FALSE).'>'.__('Yes, add flake transparency effects (recommended for best visual experience).', plugin()->text_domain).'</option>'."\n";
+					echo '                        <option value="0"'.selected(plugin()->options['use_flake_trans'], '0', FALSE).'>'.__('No, don\'t use image transparency (recommended for improved performance; speedier).', plugin()->text_domain).'</option>'."\n";
+					echo '                     </select></p>'."\n";
+					echo '               </td>'."\n";
+					echo '               <td style="width:1px; font-weight:bold; white-space:nowrap;"><div class="plugin-virtual-snow-blower"></div></td>'."\n";
+					echo '            </tr>'."\n";
+					echo '         </tbody>'."\n";
+					echo '      </table>'."\n";
 					echo '   </div>'."\n";
 
 					echo '</div>'."\n";
