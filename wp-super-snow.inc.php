@@ -39,8 +39,8 @@ namespace wp_super_snow // Root namespace.
 						'enable'                    => '1', // `0|1`.
 
 						'container'                 => 'body', 'z_index' => '9999999',
-						'flakes'                    => array($this->url('/client-s/images/snowflake.png', 'relative'),
-						                                     $this->url('/client-s/images/snowball.png', 'relative')),
+						'flakes'                    => $this->url('/client-s/images/snowflake.png', 'relative')."\n".
+						                               $this->url('/client-s/images/snowball.png', 'relative'),
 						'total_flakes'              => '50', 'max_size' => '50', 'max_duration' => '25', 'use_flake_trans' => '1',
 
 						'uninstall_on_deactivation' => '0' // `0|1`.
@@ -148,10 +148,13 @@ namespace wp_super_snow // Root namespace.
 					$_this = $this; // Reference used below.
 					add_action('wp_footer', function () use ($_this)
 						{
+							$flakes = preg_split('/['."\r\n".']+/', // A line-delimited list of image paths.
+							                     $_this->options['flakes'], NULL, PREG_SPLIT_NO_EMPTY);
+
 							echo '<script type="text/javascript">'."\n".
 							     "  jQuery(document).ready(function($){"."\n".
 							     "     $('".$_this->esc_sq($_this->options['container'])."').wpSuperSnow({"."\n".
-							     "        flakes: ['".implode("','", array_map(array($_this, 'esc_sq'), $_this->options['flakes']))."'],"."\n".
+							     "        flakes: ['".implode("','", array_map(array($_this, 'esc_sq'), $flakes))."'],"."\n".
 							     "        totalFlakes: '".$_this->esc_sq($_this->options['total_flakes'])."',"."\n".
 							     "        zIndex: '".$_this->esc_sq($_this->options['z_index'])."',"."\n".
 							     "        maxSize: '".$_this->esc_sq($_this->options['max_size'])."',"."\n".
