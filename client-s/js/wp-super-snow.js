@@ -26,9 +26,9 @@
 						 {
 							 var left = mtRand(0, 100);
 							 var visibility = mtRand(1, 9);
-							 var duration = mtRand(0, 10) + options.speed;
-							 var delay = mtRand(0, duration);
-							 var size = mtRand(0, options.size) + 10;
+							 var duration = mtRand(1, 10) + options.speed;
+							 var delay = mtRand(1, duration);
+							 var size = mtRand(1, options.size);
 							 var wind = winds[mtRand(0, winds.length - 1)];
 							 var flake = options.flakes[mtRand(0, options.flakes.length - 1)];
 							 var $flake = $('<div class="wp-super-snow-flake"><img src="' + flake + '" /></div>');
