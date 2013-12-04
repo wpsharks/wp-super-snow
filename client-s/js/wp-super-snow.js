@@ -5,7 +5,7 @@
 		$.fn.wpSuperSnow = function(options) // Start snowing.
 			{
 				var i, left, visibility, duration, delay, size, wind, flake, $flake,
-					$head = $('head'), $body = $('body'), $container, // Cache what we can.
+					$head = $('head'), $body = $('body'), $container, position,
 					defaults = {flakes: [], totalFlakes: 50, zIndex: 9999999,
 						maxSize        : 50, maxDuration: 25, useFlakeTrans: true},
 					winds = ['wpSuperSnowL', 'wpSuperSnowR'];
@@ -25,6 +25,10 @@
 				return this.each // A jQuery object array; we iterate all containers.
 				(function() // Each of these are containers sharing the same `options`.
 				 {
+					 $container = $(this), position = 'fixed'; // Default positioning.
+					 if($.inArray($container[0].nodeName.toLowerCase(), ['html', 'body']) === -1)
+						 $container.css({position: 'relative'}), position = 'absolute';
+
 					 for($container = $(this), i = 1; i <= Number(options.totalFlakes); i++)
 						 {
 							 left = mtRand(0, 100);
@@ -43,7 +47,7 @@
 							 $flake.css // Let it snow...
 							 ({'width': size + 'px', 'height': size + 'px',
 
-								  'position': 'fixed',
+								  'position': position,
 								  'z-index' : Number(options.zIndex),
 								  'left'    : left + '%', 'top': '0',
 								  'opacity' : '0',

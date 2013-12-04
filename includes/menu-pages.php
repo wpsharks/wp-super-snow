@@ -28,6 +28,7 @@ namespace wp_super_snow // Root namespace.
 					echo '   <div class="plugin-menu-page-upsells">'."\n";
 					// echo '      <a href="'.esc_attr(add_query_arg(urlencode_deep(array('page' => __NAMESPACE__, __NAMESPACE__.'_pro_preview' => '1')), self_admin_url('/admin.php'))).'"><i class="fa fa-eye"></i> Preview Pro Features</a>'."\n";
 					// echo '      <a href="http://www.websharks-inc.com/product/wp-super-snow/" target="_blank"><i class="fa fa-heart-o"></i> Pro Upgrade</a>'."\n";
+					echo '      <a href="http://www.websharks-inc.com/r/wp-theme-plugin-donation/" target="_blank"><i class="fa fa-heart-o"></i> Donate (Support the Developer)</a>'."\n";
 					echo '      <a href="http://www.websharks-inc.com/r/wp-super-snow-subscribe/" target="_blank"><i class="fa fa-envelope"></i> WP Super Snow Updates (via Email)</a>'."\n";
 					echo '   </div>'."\n";
 
