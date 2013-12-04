@@ -110,7 +110,7 @@ namespace wp_super_snow // Root namespace.
 					echo '                  <p>'.__('The options below support an advanced configuration of WP Super Snow. The defaults work just fine; but you might like to change things up just a bit. It\'s fun. <i class="fa fa-smile-o"></i>', plugin()->text_domain).'</p>'."\n";
 					echo '                  <hr />'."\n";
 					echo '                  <h3>'.__('WP Super Snow Container', plugin()->text_domain).'</h3>'."\n";
-					echo '                  <p>'.__('This is almost always the <code>body</code> tag. Unless you have a specific area of your site where WP Super Snow should be applied, it\'s best to leave this as <code>body</code>; e.g. the entire page. If you do change this value, please use a CSS selector expression that is compatible with jQuery; e.g. <code>#my_div</code>.', plugin()->text_domain).'</p>'."\n";
+					echo '                  <p>'.__('This is almost always the <code>body</code> tag. Unless you have a specific area of your site where WP Super Snow should be applied. If you change this, please use a CSS selector expression that is compatible with jQuery; e.g. <code>#my_div</code>', plugin()->text_domain).'</p>'."\n";
 					echo '                  <p><input type="text" name="'.esc_attr(__NAMESPACE__).'[save_options][container]" value="'.esc_attr(plugin()->options['container']).'" /></p>'."\n";
 					echo '                  <hr />'."\n";
 					echo '                  <h3>'.__('Use Snow Flake Transparency Effects?', plugin()->text_domain).'</h3>'."\n";
