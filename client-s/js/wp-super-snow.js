@@ -27,7 +27,7 @@
 				 {
 					 $container = $(this), position = 'fixed'; // Default positioning.
 					 if($.inArray($container[0].nodeName.toLowerCase(), ['html', 'body']) === -1)
-						 $container.css({position: 'relative', 'overflow-y': 'hidden'}), position = 'absolute';
+						 $container.css({position: 'relative', overflow: 'hidden'}), position = 'absolute';
 
 					 for($container = $(this), i = 1; i <= Number(options.totalFlakes); i++)
 						 {
