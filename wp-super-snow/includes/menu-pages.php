@@ -131,7 +131,7 @@ namespace wp_super_snow // Root namespace.
 					echo '                  <h3>'.__('Use Snow Flake Transparency Effects?', plugin()->text_domain).'</h3>'."\n";
 					echo '                  <p>'.__('Snowflake animations always include transpareny effects. This setting enables/disables some ADDITIONAL snowflake image transparency effects for an enhanced viewing experience in modern browsers.', plugin()->text_domain).'</p>'."\n";
 					echo '                  <p><select name="'.esc_attr(__NAMESPACE__).'[save_options][use_flake_trans]">'."\n";
-					echo '                        <option value="1"'.selected(plugin()->options['use_flake_trans'], '1', FALSE).'>'.__('Yes, add flake transparency effects (recommended for best visual experience).', plugin()->text_domain).'</option>'."\n";
+					echo '                        <option value="1"'.selected(plugin()->options['use_flake_trans'], '1', FALSE).'>'.__('Yes, add image transparency effects (recommended for best visual experience).', plugin()->text_domain).'</option>'."\n";
 					echo '                        <option value="0"'.selected(plugin()->options['use_flake_trans'], '0', FALSE).'>'.__('No, don\'t use image transparency (recommended for improved performance; speedier).', plugin()->text_domain).'</option>'."\n";
 					echo '                     </select></p>'."\n";
 					echo '               </td>'."\n";
