@@ -35,7 +35,8 @@
 							   'font-family': options.flakeFontFamily,
 							   'font-size'  : size + 'px', 'line-height': size + 'px',
 							   'color'      : 'rgba(255,255,255,.' + visibility + ')',
-							   'text-shadow': '0 0 10px rgba(255,255,255,.' + visibility + ')',
+							   'text-shadow': '0px 0px 50px rgba(0,0,0,.' + visibility + '),' +
+							                  '0 0 10px rgba(255,255,255,.' + visibility + ')',
 
 							   'position': 'fixed',
 							   'z-index' : options.zIndex,
