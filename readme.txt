@@ -18,7 +18,7 @@ Adds a customizable falling snow effect to any holiday or Christmas site.
 
 Beautiful falling snow plugin for any WordPress holiday or Christmas site.
 
-This is an awesome free Christmas snow falling plugin with jQuery and CSS3 (no images); very lightweight. You can add falling snow flakes to your website and customize these snow flakes using various configurable options in your WordPress Dashboard.
+This is an awesome free Christmas snow falling plugin with jQuery and CSS3; very lightweight. You can add falling snow flakes to your website and customize these snow flakes using various configuration options in your WordPress Dashboard.
 
 == Screenshots ==
 
@@ -42,15 +42,23 @@ This is an awesome free Christmas snow falling plugin with jQuery and CSS3 (no i
 
 = How can I change the size of each snow flake (and other options)? =
 
-Please check your Dashboard under: **WP Super Snow -› Options**.
+Yes, please check your Dashboard under: **WP Super Snow -› Virtual Snow Blower**.
 
-= Does this falling snow plugin depend on any snowflake images? =
+= Does this plugin load a bunch of extra files that will slow down my site? =
 
-No, this plugin pulls a single jQuery (JavaScript) file into your WordPress site. It delivers beautiful falling snowflakes using only JavaScript, HTML5 and CSS3 (no images). That said, it is possible to use snow flake images if you prefer. See: **WP Super Snow -› Options** in your WP Dashboard for all available options.
+No, this plugin pulls in ONE simple jQuery (JavaScript) file — very small. It delivers beautiful falling snowflakes using only this one JavaScript file (and whatever snowflake images you choose). Please check your Dashboard under: **WP Super Snow -› Virtual Snow Blower**.
+
+= Does this falling snow plugin allow for custom snowflake images? =
+
+Yes, please check your Dashboard under: **WP Super Snow -› Virtual Snow Blower**.
 
 = What browsers are supported by this falling snow plugin? =
 
-Compatible w/ IE 10+, IE Mobile 10+, Firefox 5+, Chrome 4+, Safari 4+, iOS Safari 3.2+, Android 2.1+, Android Chrome 31+, Android Firefox 25+, BlackBerry 7+, Opera 12+, Opera Mobile 12.1+; and many modern browsers. See also: <http://caniuse.com/css-animation>.
+Compatible w/ IE 10+, IE Mobile 10+, Firefox 5+, Chrome 4+, Safari 4+, iOS Safari 3.2+, Android 2.1+, Android Chrome 31+, Android Firefox 25+, BlackBerry 7+, Opera 12+, Opera Mobile 12.1+; and many other modern browsers. See also: <http://caniuse.com/css-animation>.
+
+= Are there any other requirements for this plugin to function properly? =
+
+This plugin requires jQuery (this already comes w/ WordPress). If you have WordPress, you already have jQuery. This plugin also requires PHP v5.3 (or higher).
 
 == License ==
 
