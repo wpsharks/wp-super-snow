@@ -39,7 +39,19 @@
 					else $thisPanel.find('.plugin-menu-page-panel-if-enabled').css('opacity', 0.4).find(':input').attr('disabled', 'disabled');
 				})
 					.trigger('change'); // Initialize.
-				$('.plugin-virtual-snow-blower', $menuPage).wpSuperSnow();
+
+				$('.plugin-virtual-snow-blower-preview')
+					.click(function() // Based on current settings.
+					       {
+						       var $vsb = $('.plugin-virtual-snow-blower', $menuPage);
+						       $('.wp-super-snow-flake', $vsb).remove(); // Remove any existing snowflakes.
+						       $vsb.wpSuperSnow({flakes         : $.trim($('[name$="\\[flakes\\]"]', $menuPage).val()).split(/[\r\n]+/),
+							                        totalFlakes  : $.trim($('[name$="\\[total_flakes\\]"]', $menuPage).val()),
+							                        zIndex       : $.trim($('[name$="\\[z_index\\]"]', $menuPage).val()),
+							                        maxSize      : $.trim($('[name$="\\[max_size\\]"]', $menuPage).val()),
+							                        maxDuration  : $.trim($('[name$="\\[max_duration\\]"]', $menuPage).val()),
+							                        useFlakeTrans: $.trim($('[name$="\\[use_flake_trans\\]"]', $menuPage).val()) === '1'});
+					       }).trigger('click');
 			};
 		$document.ready(plugin.onReady); // On DOM ready.
 	})(jQuery);
