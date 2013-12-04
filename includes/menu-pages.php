@@ -103,7 +103,7 @@ namespace wp_super_snow // Root namespace.
 					echo '      <table style="width:100%;">'."\n";
 					echo '         <tbody>'."\n";
 					echo '            <tr>'."\n";
-					echo '               <td style="width:100%;">'."\n";
+					echo '               <td style="width:100%; vertical-align:top;">'."\n";
 					echo '                  <i class="fa fa-gears fa-4x" style="float:right; margin: 0 0 0 25px;"></i>'."\n";
 					echo '                  <button type="button" class="plugin-virtual-snow-blower-preview" style="float:right; margin: 0 0 0 25px;"><i class="fa fa-eye"></i> Preview</button>'."\n";
 					echo '                  <h3>'.__('Virtual Snow Blower — Configure WP Super Snow!', plugin()->text_domain).'</h3>'."\n";
@@ -115,7 +115,7 @@ namespace wp_super_snow // Root namespace.
 					echo '                        <option value="0"'.selected(plugin()->options['use_flake_trans'], '0', FALSE).'>'.__('No, don\'t use image transparency (recommended for improved performance; speedier).', plugin()->text_domain).'</option>'."\n";
 					echo '                     </select></p>'."\n";
 					echo '               </td>'."\n";
-					echo '               <td style="width:1px; font-weight:bold; white-space:nowrap;"><div class="plugin-virtual-snow-blower"></div></td>'."\n";
+					echo '               <td style="width:1px; vertical-align:top; white-space:nowrap;"><div class="plugin-virtual-snow-blower"></div></td>'."\n";
 					echo '            </tr>'."\n";
 					echo '         </tbody>'."\n";
 					echo '      </table>'."\n";
