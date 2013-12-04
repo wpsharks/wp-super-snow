@@ -105,7 +105,7 @@ namespace wp_super_snow // Root namespace.
 					echo '            <tr>'."\n";
 					echo '               <td style="width:100%; vertical-align:top;">'."\n";
 					echo '                  <i class="fa fa-gears fa-4x" style="float:right; margin: 0 0 0 25px;"></i>'."\n";
-					echo '                  <button type="button" class="plugin-virtual-snow-blower-preview" style="float:right; margin: 0 0 0 25px;"><i class="fa fa-eye"></i> Preview</button>'."\n";
+					echo '                  <button type="button" class="plugin-virtual-snow-blower-preview" style="float:right; margin: 0 0 0 25px;"><i class="fa fa-eye"></i> '.__('Preview', plugin()->text_domain).'</button>'."\n";
 					echo '                  <h3>'.__('Virtual Snow Blower — Configure WP Super Snow!', plugin()->text_domain).'</h3>'."\n";
 					echo '                  <p>'.__('The options below support an advanced configuration of WP Super Snow. The defaults work just fine; but you might like to change things up just a bit. It\'s fun. <i class="fa fa-smile-o"></i>', plugin()->text_domain).'</p>'."\n";
 					echo '                  <hr />'."\n";
@@ -116,7 +116,7 @@ namespace wp_super_snow // Root namespace.
 					echo '                  <p>'.__('This is the layered stack order for all snowflakes; e.g. <code>style="z-index:9999999;"</code>. Generally speaking, it\'s best to keep snowflakes on top of everything else. See also: <a href="http://www.w3schools.com/cssref/pr_pos_z-index.asp" target="_blank">z-index @ W3Schools</a> if you\'re not familiar with this term.', plugin()->text_domain).'</p>'."\n";
 					echo '                  <p><input type="text" name="'.esc_attr(__NAMESPACE__).'[save_options][z_index]" value="'.esc_attr(plugin()->options['z_index']).'" /></p>'."\n";
 					echo '                  <h3>'.__('Snowflake Images (a Line-Delimited List Please)', plugin()->text_domain).'</h3>'."\n";
-					echo '                  <p>'.__('The defaults work fine for most sites. However, if you prefer to add (or replace) the default snowflake graphics you can do that here. We recommend alpha transparent PNG files approx 100x100 pixels. There is no limit on the number of graphics (one image path per line please).', plugin()->text_domain).'</p>'."\n";
+					echo '                  <p>'.__('If you prefer to add your own, or replace the default snowflake graphics you can do that here. We recommend alpha transparent PNG files approx 100x100 pixels. There is no limit on the number of graphics (one image path per line please).', plugin()->text_domain).'</p>'."\n";
 					echo '                  <p><textarea name="'.esc_attr(__NAMESPACE__).'[save_options][flakes]" spellcheck="false" class="monospace" rows="3">'.esc_textarea(plugin()->options['flakes']).'</textarea></p>'."\n";
 					echo '                  <h3>'.__('Total Snowflakes to Process', plugin()->text_domain).'</h3>'."\n";
 					echo '                  <p>'.__('Snowflakes are processed (animated) in and out of view at random intervals. This setting determines the total number of snowflakes that should ever be processed at the same time. Note: the more snowflakes you process — the slower your site might become (particularly on slower computers).', plugin()->text_domain).'</p>'."\n";
@@ -134,7 +134,11 @@ namespace wp_super_snow // Root namespace.
 					echo '                        <option value="0"'.selected(plugin()->options['use_flake_trans'], '0', FALSE).'>'.__('No, don\'t use image transparency (recommended for improved performance; speedier).', plugin()->text_domain).'</option>'."\n";
 					echo '                     </select></p>'."\n";
 					echo '               </td>'."\n";
-					echo '               <td style="width:1px; vertical-align:top; white-space:nowrap;"><div class="plugin-virtual-snow-blower"></div></td>'."\n";
+					echo '               <td style="width:1px; vertical-align:top; white-space:nowrap;">'."\n";
+					echo '               <div class="plugin-virtual-snow-blower"></div>'."\n";
+					echo '               <p class="info"><i class="fa fa-arrow-circle-up" style="float:right; margin:0 0 0 15px;"></i>'.
+					     '                  '.__('<strong>Tip:</strong> snowflakes will fall inside this graphic. Please click the Preview button to see changes in your configuration.', plugin()->text_domain).'</p>'."\n";
+					echo '               </td>'."\n";
 					echo '            </tr>'."\n";
 					echo '         </tbody>'."\n";
 					echo '      </table>'."\n";
