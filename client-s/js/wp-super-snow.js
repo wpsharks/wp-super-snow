@@ -5,7 +5,7 @@
 		$.fn.wpSuperSnow = function(options) // Start snowing.
 			{
 				var i, css = '', $head = $('head'), $body = $('body'), $container,
-					defaults = {flakes: [$.wpSuperSnowFlake], total: 75, size: 75, zIndex: 9999999, speed: 50, trans: false},
+					defaults = {flakes: [$.wpSuperSnowFlake], total: 75, size: 75, zindex: 9999999, speed: 50, trans: false},
 					winds = ['wpSuperSnowL', 'wpSuperSnowR'];
 
 				options = $.extend({}, defaults, options); // Extend default options.
@@ -31,7 +31,7 @@
 							 ({'width': size + 'px', 'height': size + 'px',
 
 								  'position': 'fixed',
-								  'z-index' : options.zIndex,
+								  'z-index' : options.zindex,
 								  'left'    : left + '%', 'top': '0',
 								  'opacity' : '0',
 

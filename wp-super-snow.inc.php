@@ -38,10 +38,11 @@ namespace wp_super_snow // Root namespace.
 
 						'enable'                    => '1', // `0|1`.
 
-						'container'                 => 'body',
+						'container'                 => 'body', // Not likely to change.
 						'flakes'                    => array($this->url('/client-s/images/snowflake.png', 'relative'),
 						                                     $this->url('/client-s/images/snowball.png', 'relative')),
-						'total'                     => '75', 'size' => '50', 'z_index' => '9999999',
+						'total'                     => '75', 'size' => '50', 'zindex' => '9999999',
+						'speed'                     => '50', 'trans' => '0',
 
 						'uninstall_on_deactivation' => '0' // `0|1`.
 					); // Default options are merged with those defined by the site owner.
@@ -154,7 +155,9 @@ namespace wp_super_snow // Root namespace.
 							     "        flakes: ['".implode("','", array_map(array($_this, 'esc_sq'), $_this->options['flakes']))."'],"."\n".
 							     "        total: '".$_this->esc_sq($_this->options['total'])."',"."\n".
 							     "        size: '".$_this->esc_sq($_this->options['size'])."',"."\n".
-							     "        zIndex: '".$_this->esc_sq($_this->options['z_index'])."'"."\n".
+							     "        zindex: '".$_this->esc_sq($_this->options['zindex'])."',"."\n".
+							     "        speed: '".$_this->esc_sq($_this->options['speed'])."',"."\n".
+							     "        trans: ".(($_this->options['trans']) ? 'true' : 'false')."\n".
 							     "     });"."\n".
 							     "  });"."\n".
 							     '</script>'."\n";
