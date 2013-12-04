@@ -196,8 +196,8 @@ namespace wp_super_snow // Root namespace.
 
 					public function add_menu_pages()
 						{
-							add_menu_page(__('WP Super Snow', $this->text_domain), // Menu page for plugin options/config.
-							              __('WP Super Snow', $this->text_domain), $this->cap, __NAMESPACE__, array($this, 'menu_page_options'),
+							add_menu_page(__('Super Snow', $this->text_domain), // Menu page for plugin options/config.
+							              __('Super Snow', $this->text_domain), $this->cap, __NAMESPACE__, array($this, 'menu_page_options'),
 							              $this->url('/client-s/images/menu-icon.png'));
 						}
 
