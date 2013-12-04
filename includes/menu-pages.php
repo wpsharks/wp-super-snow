@@ -67,7 +67,7 @@ namespace wp_super_snow // Root namespace.
 					echo '   </div>'."\n";
 
 					echo '   <div class="plugin-menu-page-panel-body'.((!plugin()->options['enable']) ? ' open' : '').' clearfix">'."\n";
-					echo '      <p style="float:right; margin:-5px 0 0 0; font-weight:bold;">WP Super Snow = <i class="fa fa-users fa-4x"></i> happy visitors<em>!</em></p>'."\n";
+					echo '      <p style="float:right; margin:-5px 0 0 0; font-weight:bold;">WP Super Snow = <i class="fa fa-group fa-4x"></i> happy visitors<em>!</em></p>'."\n";
 					echo '      <p style="margin-top:1em;"><label class="switch-primary"><input type="radio" name="'.esc_attr(__NAMESPACE__).'[save_options][enable]" value="1"'.checked(plugin()->options['enable'], '1', FALSE).' /> <i class="fa fa-magic fa-flip-horizontal"></i> '.__('Yes, enable WP Super Snow!', plugin()->text_domain).'</label> &nbsp;&nbsp;&nbsp; <label><input type="radio" name="'.esc_attr(__NAMESPACE__).'[save_options][enable]" value="0"'.checked(plugin()->options['enable'], '0', FALSE).' /> '.__('No, disable.', plugin()->text_domain).'</label></p>'."\n";
 					echo '   </div>'."\n";
 
@@ -94,11 +94,11 @@ namespace wp_super_snow // Root namespace.
 					echo '<div class="plugin-menu-page-panel">'."\n";
 
 					echo '   <div class="plugin-menu-page-panel-heading">'."\n";
-					echo '      <i class="fa fa-shield"></i> '.__('Virtual Snow Blower', plugin()->text_domain)."\n";
+					echo '      <i class="fa fa-gears"></i> '.__('Virtual Snow Blower', plugin()->text_domain)."\n";
 					echo '   </div>'."\n";
 
 					echo '   <div class="plugin-menu-page-panel-body clearfix">'."\n";
-					echo '      <i class="fa fa-shield fa-4x" style="float:right; margin: 0 0 0 25px;"></i>'."\n";
+					echo '      <i class="fa fa-gears fa-4x" style="float:right; margin: 0 0 0 25px;"></i>'."\n";
 					echo '      <h3>'.__('Virtual Snow Blower — Configure WP Super Snow!', plugin()->text_domain).'</h3>'."\n";
 					echo '      <p>'.__('The options below allow for advanced configuration of WP Super Snow. The defaults work just fine for most sites, but you might like to change things up just a bit here. It\'s also quite fun. <i class="fa fa-smile"></i>', plugin()->text_domain).'</p>'."\n";
 					echo '      <hr />'."\n";
