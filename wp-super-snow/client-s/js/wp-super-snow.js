@@ -57,11 +57,6 @@
 								  '-moz-user-select'   : 'none',
 								  '-ms-user-select'    : 'none',
 
-								  'backface-visibility'        : 'hidden',
-								  '-webkit-backface-visibility': 'hidden',
-								  '-moz-backface-visibility'   : 'hidden',
-								  '-ms-backface-visibility'    : 'hidden',
-
 								  'animation'        : wind + ' ' + duration + 's infinite', 'animation-delay': delay + 's',
 								  '-webkit-animation': wind + ' ' + duration + 's infinite', '-webkit-animation-delay': delay + 's',
 								  '-moz-animation'   : wind + ' ' + duration + 's infinite', '-moz-animation-delay': delay + 's',
