@@ -10,8 +10,8 @@
 					defaults = {flakes: [], totalFlakes: 50, zIndex: 9999999,
 						maxSize        : 50, maxDuration: 25, useFlakeTrans: true},
 
-					flakeOnlyWinds = ['wpSuperSnowL', 'wpSuperSnowLY', 'wpSuperSnowR', 'wpSuperSnowRY'],
-					compatibleWinds = ['wpSuperSnowL', 'wpSuperSnowR'];
+					flakeOnlyWinds = ['wpSuperSnow_l', 'wpSuperSnowFlake_l', 'wpSuperSnow_r', 'wpSuperSnowFlake_r'],
+					compatibleWinds = ['wpSuperSnow_l', 'wpSuperSnow_r'];
 
 				options = $.extend({}, defaults, options); // Extend default options.
 				if(!options.flakes.length) return this; // We have no flakes to display.
@@ -53,7 +53,7 @@
 
 								  'position': position,
 								  'z-index' : Number(options.zIndex),
-								  'left'    : left + '%', 'top': '0',
+								  'left'    : left + '%', 'top': '-500px',
 								  'opacity' : '0',
 
 								  'user-select'        : 'none',
@@ -78,29 +78,29 @@
 				 });
 			}; // Winds w/ both a left and right rotation. Compatible with a variety of graphics; including snowballs.
 
-		$.wpSuperSnowCSS = '@keyframes wpSuperSnowL {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; transform:translate3D(500px,1500px,0) rotate(250deg);}}';
-		$.wpSuperSnowCSS += '@keyframes wpSuperSnowR {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; transform:translate3D(-500px,1500px,0) rotate(-500deg);}}';
+		$.wpSuperSnowCSS = '@keyframes wpSuperSnow_l {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; transform:translate3D(500px,1500px,0) rotate(250deg);}}';
+		$.wpSuperSnowCSS += '@keyframes wpSuperSnow_r {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; transform:translate3D(-500px,1500px,0) rotate(-500deg);}}';
 
-		$.wpSuperSnowCSS += '@-webkit-keyframes wpSuperSnowL {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -webkit-transform:translate3D(500px,1500px,0) rotate(250deg);}}';
-		$.wpSuperSnowCSS += '@-webkit-keyframes wpSuperSnowR {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -webkit-transform:translate3D(-500px,1500px,0) rotate(-500deg);}}';
+		$.wpSuperSnowCSS += '@-webkit-keyframes wpSuperSnow_l {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -webkit-transform:translate3D(500px,1500px,0) rotate(250deg);}}';
+		$.wpSuperSnowCSS += '@-webkit-keyframes wpSuperSnow_r {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -webkit-transform:translate3D(-500px,1500px,0) rotate(-500deg);}}';
 
-		$.wpSuperSnowCSS += '@-moz-keyframes wpSuperSnowL {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -moz-transform:translate3D(500px,1500px,0) rotate(250deg);}}';
-		$.wpSuperSnowCSS += '@-moz-keyframes wpSuperSnowR {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -moz-transform:translate3D(-500px,1500px,0) rotate(-500deg);}}';
+		$.wpSuperSnowCSS += '@-moz-keyframes wpSuperSnow_l {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -moz-transform:translate3D(500px,1500px,0) rotate(250deg);}}';
+		$.wpSuperSnowCSS += '@-moz-keyframes wpSuperSnow_r {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -moz-transform:translate3D(-500px,1500px,0) rotate(-500deg);}}';
 
-		$.wpSuperSnowCSS += '@-ms-keyframes wpSuperSnowL {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -ms-transform:translate3D(500px,1500px,0) rotate(250deg);}}';
-		$.wpSuperSnowCSS += '@-ms-keyframes wpSuperSnowR {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -ms-transform:translate3D(-500px,1500px,0) rotate(-500deg);}}';
+		$.wpSuperSnowCSS += '@-ms-keyframes wpSuperSnow_l {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -ms-transform:translate3D(500px,1500px,0) rotate(250deg);}}';
+		$.wpSuperSnowCSS += '@-ms-keyframes wpSuperSnow_r {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -ms-transform:translate3D(-500px,1500px,0) rotate(-500deg);}}';
 
 		// Winds w/ both a left and right rotation; plus a Y-axis rotation for 3D spinning. Suitable for true snowflakes only.
 
-		$.wpSuperSnowCSS += '@keyframes wpSuperSnowLY {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; transform:translate3D(500px,1500px,0) rotateY(720deg) rotate(250deg);}}';
-		$.wpSuperSnowCSS += '@keyframes wpSuperSnowRY {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; transform:translate3D(-500px,1500px,0) rotateY(-720deg) rotate(-500deg);}}';
+		$.wpSuperSnowCSS += '@keyframes wpSuperSnowFlake_l {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; transform:translate3D(500px,1500px,0) rotateY(720deg) rotate(250deg);}}';
+		$.wpSuperSnowCSS += '@keyframes wpSuperSnowFlake_r {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; transform:translate3D(-500px,1500px,0) rotateY(-720deg) rotate(-500deg);}}';
 
-		$.wpSuperSnowCSS += '@-webkit-keyframes wpSuperSnowLY {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -webkit-transform:translate3D(500px,1500px,0) rotateY(720deg) rotate(250deg);}}';
-		$.wpSuperSnowCSS += '@-webkit-keyframes wpSuperSnowRY {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -webkit-transform:translate3D(-500px,1500px,0) rotateY(-720deg) rotate(-500deg);}}';
+		$.wpSuperSnowCSS += '@-webkit-keyframes wpSuperSnowFlake_l {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -webkit-transform:translate3D(500px,1500px,0) rotateY(720deg) rotate(250deg);}}';
+		$.wpSuperSnowCSS += '@-webkit-keyframes wpSuperSnowFlake_r {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -webkit-transform:translate3D(-500px,1500px,0) rotateY(-720deg) rotate(-500deg);}}';
 
-		$.wpSuperSnowCSS += '@-moz-keyframes wpSuperSnowLY {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -moz-transform:translate3D(500px,1500px,0) rotateY(720deg) rotate(250deg);}}';
-		$.wpSuperSnowCSS += '@-moz-keyframes wpSuperSnowRY {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -moz-transform:translate3D(-500px,1500px,0) rotateY(-720deg) rotate(-500deg);}}';
+		$.wpSuperSnowCSS += '@-moz-keyframes wpSuperSnowFlake_l {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -moz-transform:translate3D(500px,1500px,0) rotateY(720deg) rotate(250deg);}}';
+		$.wpSuperSnowCSS += '@-moz-keyframes wpSuperSnowFlake_r {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -moz-transform:translate3D(-500px,1500px,0) rotateY(-720deg) rotate(-500deg);}}';
 
-		$.wpSuperSnowCSS += '@-ms-keyframes wpSuperSnowLY {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -ms-transform:translate3D(500px,1500px,0) rotateY(720deg) rotate(250deg);}}';
-		$.wpSuperSnowCSS += '@-ms-keyframes wpSuperSnowRY {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -ms-transform:translate3D(-500px,1500px,0) rotateY(-720deg) rotate(-500deg);}}';
+		$.wpSuperSnowCSS += '@-ms-keyframes wpSuperSnowFlake_l {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -ms-transform:translate3D(500px,1500px,0) rotateY(720deg) rotate(250deg);}}';
+		$.wpSuperSnowCSS += '@-ms-keyframes wpSuperSnowFlake_r {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -ms-transform:translate3D(-500px,1500px,0) rotateY(-720deg) rotate(-500deg);}}';
 	})(jQuery);
