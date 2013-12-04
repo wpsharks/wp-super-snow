@@ -5,7 +5,7 @@
 		$.fn.wpSuperSnow = function(options) // Start snowing.
 			{
 				var i, css = '', $head = $('head'), $body = $('body'), $container,
-					defaults = {flakes: [$.wpSuperSnowFlake], total: 75, size: 75, zindex: 9999999, speed: 50, trans: false},
+					defaults = {flakes: [$.wpSuperSnowFlake], total: 75, size: 75, zindex: 9999999, speed: 25, trans: false},
 					winds = ['wpSuperSnowL', 'wpSuperSnowR'];
 
 				options = $.extend({}, defaults, options); // Extend default options.
@@ -13,18 +13,24 @@
 				if($.wpSuperSnowCSS) // This property is emptied each time; e.g. we do this ONE-time-only.
 					$head.append('<style type="text/css">' + $.wpSuperSnowCSS + '</style>'), $.wpSuperSnowCSS = '';
 
+				var mtRand = function(min, max)
+					{
+						min = (typeof min === 'number') ? min : 0;
+						max = (typeof max === 'number') ? max : Number.MAX_VALUE;
+						return Math.floor(Math.random() * (max - min + 1)) + min;
+					};
 				return this.each // A jQuery object array; we iterate all items.
 				(function() // Each of these are containers sharing the same `options`.
 				 {
 					 for($container = $(this), i = 1; i <= options.total; i++) // Snowflakes.
 						 {
-							 var left = Math.round(Math.random() * 100);
-							 var visibility = Math.round(Math.random() * 10);
-							 var duration = (Math.random() * 10) + options.speed;
-							 var delay = Math.round(Math.random() * duration);
-							 var wind = winds[Math.round(Math.random() * winds.length)];
-							 var size = Math.round(Math.random() * options.size) + 8;
-							 var flake = options.flakes[Math.round(Math.random() * options.flakes.length)];
+							 var left = mtRand(0, 100);
+							 var visibility = mtRand(1, 9);
+							 var duration = mtRand(0, 10) + options.speed;
+							 var delay = mtRand(0, duration);
+							 var size = mtRand(0, options.size) + 10;
+							 var wind = winds[mtRand(0, winds.length - 1)];
+							 var flake = options.flakes[mtRand(0, options.flakes.length - 1)];
 							 var $flake = $('<div class="wp-super-snow-flake"><img src="' + flake + '" /></div>');
 
 							 $flake.css // Let it snow...

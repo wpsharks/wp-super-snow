@@ -42,7 +42,7 @@ namespace wp_super_snow // Root namespace.
 						'flakes'                    => array($this->url('/client-s/images/snowflake.png', 'relative'),
 						                                     $this->url('/client-s/images/snowball.png', 'relative')),
 						'total'                     => '75', 'size' => '50', 'zindex' => '9999999',
-						'speed'                     => '50', 'trans' => '0',
+						'speed'                     => '25', 'trans' => '0',
 
 						'uninstall_on_deactivation' => '0' // `0|1`.
 					); // Default options are merged with those defined by the site owner.
