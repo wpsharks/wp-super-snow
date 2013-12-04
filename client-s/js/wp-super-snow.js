@@ -5,7 +5,7 @@
 		$.fn.wpSuperSnow = function(options) // Start snowing.
 			{
 				var i, css = '', $head = $('head'), $body = $('body'), $container,
-					defaults = {flakes: [$.wpSuperSnowFlake], total: 75, size: 75, zIndex: 9999999},
+					defaults = {flakes: [$.wpSuperSnowFlake], total: 75, size: 75, zIndex: 9999999, speed: 50, trans: false},
 					winds = ['wpSuperSnowL', 'wpSuperSnowR'];
 
 				options = $.extend({}, defaults, options); // Extend default options.
@@ -18,9 +18,9 @@
 				 {
 					 for($container = $(this), i = 1; i <= options.total; i++) // Snowflakes.
 						 {
-							 var duration = (Math.random() * 10) + 20;
 							 var left = Math.round(Math.random() * 100);
 							 var visibility = Math.round(Math.random() * 10);
+							 var duration = (Math.random() * 10) + options.speed;
 							 var delay = Math.round(Math.random() * duration);
 							 var wind = winds[Math.round(Math.random() * winds.length)];
 							 var size = Math.round(Math.random() * options.size) + 8;
@@ -39,7 +39,8 @@
 								  '-webkit-animation': wind + ' ' + duration + 's infinite', '-webkit-animation-delay': delay + 's',
 								  '-moz-animation'   : wind + ' ' + duration + 's infinite', '-moz-animation-delay': delay + 's'
 							  }),
-								 $('img', $flake).css({width: '100%', height: 'auto', border: 0, opacity: '.' + visibility});
+								 $('img', $flake).css({width    : '100%', height: 'auto', border: 0,
+									                      opacity: (options.trans) ? '.' + visibility : 1});
 
 							 $container.append($flake);
 						 }
