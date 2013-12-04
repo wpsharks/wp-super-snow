@@ -4,7 +4,8 @@
 
 		$.fn.wpSuperSnow = function(options) // Start snowing.
 			{
-				var i, css = '', $head = $('head'), $body = $('body'), $container,
+				var i, left, visibility, duration, delay, size, wind, flake, $flake,
+					$head = $('head'), $body = $('body'), $container, // Cache what we can.
 					defaults = {flakes: [$.wpSuperSnowFlake], total: 75, size: 75, zindex: 9999999, speed: 25, trans: false},
 					winds = ['wpSuperSnowL', 'wpSuperSnowR'];
 
@@ -22,22 +23,22 @@
 				return this.each // A jQuery object array; we iterate all items.
 				(function() // Each of these are containers sharing the same `options`.
 				 {
-					 for($container = $(this), i = 1; i <= options.total; i++) // Snowflakes.
+					 for($container = $(this), i = 1; i <= Number(options.total); i++)
 						 {
-							 var left = mtRand(0, 100);
-							 var visibility = mtRand(1, 9);
-							 var duration = mtRand(1, 10) + options.speed;
-							 var delay = mtRand(1, duration);
-							 var size = mtRand(1, options.size);
-							 var wind = winds[mtRand(0, winds.length - 1)];
-							 var flake = options.flakes[mtRand(0, options.flakes.length - 1)];
-							 var $flake = $('<div class="wp-super-snow-flake"><img src="' + flake + '" /></div>');
+							 left = mtRand(0, 100);
+							 visibility = mtRand(1, 9);
+							 duration = mtRand(1, 10) + Number(options.speed);
+							 delay = mtRand(1, duration);
+							 size = mtRand(1, Number(options.size));
+							 wind = winds[mtRand(0, winds.length - 1)];
+							 flake = options.flakes[mtRand(0, options.flakes.length - 1)];
+							 $flake = $('<div class="wp-super-snow-flake"><img src="' + flake + '" /></div>');
 
 							 $flake.css // Let it snow...
 							 ({'width': size + 'px', 'height': size + 'px',
 
 								  'position': 'fixed',
-								  'z-index' : options.zindex,
+								  'z-index' : Number(options.zindex),
 								  'left'    : left + '%', 'top': '0',
 								  'opacity' : '0',
 
