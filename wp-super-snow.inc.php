@@ -39,8 +39,8 @@ namespace wp_super_snow // Root namespace.
 						'enable'                    => '1', // `0|1`.
 
 						'container'                 => 'body',
-						'flakes'                    => array($this->url('/client-s/images/snowflake.png'),
-						                                     $this->url('/client-s/images/snowball.png')),
+						'flakes'                    => array($this->url('/client-s/images/snowflake.png', 'relative'),
+						                                     $this->url('/client-s/images/snowball.png', 'relative')),
 						'total'                     => '75', 'size' => '50', 'z_index' => '9999999',
 
 						'uninstall_on_deactivation' => '0' // `0|1`.
