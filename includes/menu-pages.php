@@ -100,8 +100,8 @@ namespace wp_super_snow // Root namespace.
 					echo '   </div>'."\n";
 
 					echo '   <div class="plugin-menu-page-panel-body clearfix">'."\n";
+					echo '      <div class="plugin-virtual-snow-blower"></div>'."\n";
 					echo '      <i class="fa fa-gears fa-4x" style="float:right; margin: 0 0 0 25px;"></i>'."\n";
-					echo '      <div class="plugin-virtual-snow-blower"><!-- WP Super Snow container. --></div>'."\n";
 					echo '      <h3>'.__('Virtual Snow Blower — Configure WP Super Snow!', plugin()->text_domain).'</h3>'."\n";
 					echo '      <p>'.__('The options below support an advanced configuration of WP Super Snow. The defaults work just fine; but you might like to change things up just a bit. It\'s fun. <i class="fa fa-smile-o"></i>', plugin()->text_domain).'</p>'."\n";
 					echo '      <hr />'."\n";
