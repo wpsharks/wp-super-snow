@@ -180,7 +180,7 @@ namespace wp_super_snow // Root namespace.
 
 					$deps = array('jquery'); // Plugin dependencies.
 
-					wp_enqueue_script(__NAMESPACE__, $this->url('/client-s/js/wp-super-snow.min.js'), $deps, $this->version, TRUE);
+					wp_enqueue_script(__NAMESPACE__.'-snow', $this->url('/client-s/js/wp-super-snow.min.js'), $deps, $this->version, TRUE);
 					wp_enqueue_script(__NAMESPACE__, $this->url('/client-s/js/menu-pages.min.js'), $deps, $this->version, TRUE);
 				}
 
