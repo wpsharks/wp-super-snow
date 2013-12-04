@@ -13,6 +13,8 @@ namespace wp_super_snow // Root namespace.
 
 					echo '<div class="plugin-menu-page-heading">'."\n";
 
+					echo '   <button type="submit">'.__('Save', plugin()->text_domain).' <i class="fa fa-save"></i></button>'."\n";
+
 					echo '   <button type="button" class="plugin-menu-page-restore-defaults"'. // Restores default options.
 					     '      data-confirmation="'.esc_attr(__('Restore default plugin options? You will lose all of your current settings! Are you absolutely sure about this?', plugin()->text_domain)).'"'.
 					     '      data-action="'.esc_attr(add_query_arg(urlencode_deep(array('page' => __NAMESPACE__, '_wpnonce' => wp_create_nonce(), __NAMESPACE__ => array('restore_default_options' => '1'))), self_admin_url('/admin.php'))).'">'.
@@ -24,7 +26,7 @@ namespace wp_super_snow // Root namespace.
 					echo '   </div>'."\n";
 
 					echo '   <div class="plugin-menu-page-upsells">'."\n";
-					echo '      <a href="'.esc_attr(add_query_arg(urlencode_deep(array('page' => __NAMESPACE__, __NAMESPACE__.'_pro_preview' => '1')), self_admin_url('/admin.php'))).'"><i class="fa fa-eye"></i> Preview Pro Features</a>'."\n";
+					// echo '      <a href="'.esc_attr(add_query_arg(urlencode_deep(array('page' => __NAMESPACE__, __NAMESPACE__.'_pro_preview' => '1')), self_admin_url('/admin.php'))).'"><i class="fa fa-eye"></i> Preview Pro Features</a>'."\n";
 					// echo '      <a href="http://www.websharks-inc.com/product/wp-super-snow/" target="_blank"><i class="fa fa-heart-o"></i> Pro Upgrade</a>'."\n";
 					echo '      <a href="http://www.websharks-inc.com/r/wp-super-snow-subscribe/" target="_blank"><i class="fa fa-envelope"></i> WP Super Snow Updates (via Email)</a>'."\n";
 					echo '   </div>'."\n";
@@ -99,8 +101,9 @@ namespace wp_super_snow // Root namespace.
 
 					echo '   <div class="plugin-menu-page-panel-body clearfix">'."\n";
 					echo '      <i class="fa fa-gears fa-4x" style="float:right; margin: 0 0 0 25px;"></i>'."\n";
+					echo '      <div class="plugin-virtual-snow-blower"><!-- WP Super Snow container. --></div>'."\n";
 					echo '      <h3>'.__('Virtual Snow Blower — Configure WP Super Snow!', plugin()->text_domain).'</h3>'."\n";
-					echo '      <p>'.__('The options below allow for advanced configuration of WP Super Snow. The defaults work just fine for most sites, but you might like to change things up just a bit here. It\'s also quite fun. <i class="fa fa-smile"></i>', plugin()->text_domain).'</p>'."\n";
+					echo '      <p>'.__('The options below support an advanced configuration of WP Super Snow. The defaults work just fine; but you might like to change things up just a bit. It\'s fun. <i class="fa fa-smile-o"></i>', plugin()->text_domain).'</p>'."\n";
 					echo '      <hr />'."\n";
 					echo '      <h3>'.__('Use Snow Flake Transparency Effects?', plugin()->text_domain).'</h3>'."\n";
 					echo '      <p><select name="'.esc_attr(__NAMESPACE__).'[save_options][use_flake_trans]">'."\n";

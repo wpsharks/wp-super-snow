@@ -39,6 +39,7 @@
 					else $thisPanel.find('.plugin-menu-page-panel-if-enabled').css('opacity', 0.4).find(':input').attr('disabled', 'disabled');
 				})
 					.trigger('change'); // Initialize.
+				$('.plugin-virtual-snow-blower', $menuPage).wpSuperSnow();
 			};
 		$document.ready(plugin.onReady); // On DOM ready.
 	})(jQuery);
