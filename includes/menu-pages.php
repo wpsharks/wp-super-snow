@@ -135,8 +135,8 @@ namespace wp_super_snow // Root namespace.
 					echo '                     </select></p>'."\n";
 					echo '               </td>'."\n";
 					echo '               <td style="width:1px; vertical-align:top; white-space:nowrap;">'."\n";
-					echo '               <div class="plugin-virtual-snow-blower"></div>'."\n";
-					echo '               <p class="info" style="text-align:center; width:400px; margin:15px 0 0 0;"><i class="fa fa-arrow-circle-up" style="float:right; margin:0 0 0 15px;"></i>'.
+					echo '               <div class="plugin-virtual-snow-blower" style="width:400px; height:400px; margin: 0 0 15px 25px; border-radius:5px; border:1px solid #000000; background:url(\''.esc_attr(plugin()->url('/client-s/images/vsb-bg.png')).'\') no-repeat;"></div>'."\n";
+					echo '               <p class="info" style="text-align:center; width:400px; margin:15px 0 0 25px; white-space:normal;"><i class="fa fa-arrow-circle-up" style="float:right; margin:0 0 5px 15px;"></i>'.
 					     '                  '.__('<strong>Tip:</strong> snowflakes will fall inside this graphic. Please click the Preview button to see changes in your configuration.', plugin()->text_domain).'</p>'."\n";
 					echo '               </td>'."\n";
 					echo '            </tr>'."\n";

@@ -375,19 +375,3 @@ Save button styles.
 	width       : 100%;
 	line-height : 1.3em;
 }
-
-/*
-Virtual Snow Blower.
-*/
-.plugin-virtual-snow-blower
-{
-	width         : 400px;
-	height        : 400px;
-
-	float         : right;
-	margin        : 0 0 15px 25px;
-
-	border-radius : 5px;
-	border        : 1px solid #000000;
-	background    : url('../images/vsb-bg.png') no-repeat;
-}
