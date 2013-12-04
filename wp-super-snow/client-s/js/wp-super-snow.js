@@ -73,15 +73,15 @@
 						 }
 				 });
 			};
-		$.wpSuperSnowCSS = '@keyframes wpSuperSnowL {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; transform:translate3D(100px,1500px,0) rotateY(90deg) rotate(250deg);}}';
+		$.wpSuperSnowCSS = '@keyframes wpSuperSnowL {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; transform:translate3D(100px,1500px,0) rotateY(180deg) rotate(250deg);}}';
 		$.wpSuperSnowCSS += '@keyframes wpSuperSnowR {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; transform:translate3D(-100px,1500px,0) rotateY(-180deg) rotate(-500deg);}}';
 
-		$.wpSuperSnowCSS += '@-webkit-keyframes wpSuperSnowL {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -webkit-transform:translate3D(100px,1500px,0) rotateY(90deg) rotate(250deg);}}';
+		$.wpSuperSnowCSS += '@-webkit-keyframes wpSuperSnowL {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -webkit-transform:translate3D(100px,1500px,0) rotateY(180deg) rotate(250deg);}}';
 		$.wpSuperSnowCSS += '@-webkit-keyframes wpSuperSnowR {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -webkit-transform:translate3D(-100px,1500px,0) rotateY(-180deg) rotate(-500deg);}}';
 
-		$.wpSuperSnowCSS += '@-moz-keyframes wpSuperSnowL {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -moz-transform:translate3D(100px,1500px,0) rotateY(90deg) rotate(250deg);}}';
+		$.wpSuperSnowCSS += '@-moz-keyframes wpSuperSnowL {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -moz-transform:translate3D(100px,1500px,0) rotateY(180deg) rotate(250deg);}}';
 		$.wpSuperSnowCSS += '@-moz-keyframes wpSuperSnowR {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -moz-transform:translate3D(-100px,1500px,0) rotateY(-180deg) rotate(-500deg);}}';
 
-		$.wpSuperSnowCSS += '@-ms-keyframes wpSuperSnowL {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -ms-transform:translate3D(100px,1500px,0) rotateY(90deg) rotate(250deg);}}';
+		$.wpSuperSnowCSS += '@-ms-keyframes wpSuperSnowL {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -ms-transform:translate3D(100px,1500px,0) rotateY(180deg) rotate(250deg);}}';
 		$.wpSuperSnowCSS += '@-ms-keyframes wpSuperSnowR {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -ms-transform:translate3D(-100px,1500px,0) rotateY(-180deg) rotate(-500deg);}}';
 	})(jQuery);
