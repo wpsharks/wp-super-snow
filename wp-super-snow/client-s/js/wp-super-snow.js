@@ -6,9 +6,12 @@
 			{
 				var i, left, visibility, duration, delay, size, wind, flake, $flake,
 					$head = $('head'), $body = $('body'), $container, position,
+
 					defaults = {flakes: [], totalFlakes: 50, zIndex: 9999999,
 						maxSize        : 50, maxDuration: 25, useFlakeTrans: true},
-					winds = ['wpSuperSnowL', 'wpSuperSnowLY', 'wpSuperSnowR', 'wpSuperSnowRY'];
+
+					flakeOnlyWinds = ['wpSuperSnowL', 'wpSuperSnowLY', 'wpSuperSnowR', 'wpSuperSnowRY'],
+					compatibleWinds = ['wpSuperSnowL', 'wpSuperSnowR'];
 
 				options = $.extend({}, defaults, options); // Extend default options.
 				if(!options.flakes.length) return this; // We have no flakes to display.
@@ -39,8 +42,9 @@
 							                   Number(options.maxDuration));
 							 delay = mtRand(1, duration);
 
-							 wind = winds[mtRand(0, winds.length - 1)];
 							 flake = options.flakes[mtRand(0, options.flakes.length - 1)];
+							 wind = (flake.indexOf('flake') !== -1) // Flakes can handle more complex winds.
+								 ? flakeOnlyWinds[mtRand(0, flakeOnlyWinds.length - 1)] : compatibleWinds[mtRand(0, compatibleWinds.length - 1)];
 
 							 $flake = $('<div class="wp-super-snow-flake"><img src="' + flake + '" /></div>');
 
@@ -72,8 +76,7 @@
 							 $container.append($flake);
 						 }
 				 });
-			};
-		/* Winds w/ both a left and right rotation. */
+			}; // Winds w/ both a left and right rotation. Compatible with a variety of graphics; including snowballs.
 
 		$.wpSuperSnowCSS = '@keyframes wpSuperSnowL {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; transform:translate3D(100px,1500px,0) rotate(250deg);}}';
 		$.wpSuperSnowCSS += '@keyframes wpSuperSnowR {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; transform:translate3D(-100px,1500px,0) rotate(-500deg);}}';
@@ -87,7 +90,7 @@
 		$.wpSuperSnowCSS += '@-ms-keyframes wpSuperSnowL {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -ms-transform:translate3D(100px,1500px,0) rotate(250deg);}}';
 		$.wpSuperSnowCSS += '@-ms-keyframes wpSuperSnowR {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; -ms-transform:translate3D(-100px,1500px,0) rotate(-500deg);}}';
 
-		/* Winds w/ both a left and right rotation; plus a Y-axis rotation for 3D spinning. */
+		// Winds w/ both a left and right rotation; plus a Y-axis rotation for 3D spinning. Suitable for true snowflakes only.
 
 		$.wpSuperSnowCSS += '@keyframes wpSuperSnowLY {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; transform:translate3D(100px,1500px,0) rotateY(720deg) rotate(250deg);}}';
 		$.wpSuperSnowCSS += '@keyframes wpSuperSnowRY {0% {opacity:0;} 25% {opacity:1;} 100% {opacity:0; transform:translate3D(-100px,1500px,0) rotateY(-720deg) rotate(-500deg);}}';
