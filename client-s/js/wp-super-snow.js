@@ -7,7 +7,7 @@
 				var i, left, visibility, duration, delay, size, wind, flake, $flake,
 					$head = $('head'), $body = $('body'), $container, // Cache what we can.
 					defaults = {flakes: [], totalFlakes: 50, zIndex: 9999999,
-						maxSize        : 50, maxDuration: 25, useFlakeTrans: false},
+						maxSize        : 50, maxDuration: 25, useFlakeTrans: true},
 					winds = ['wpSuperSnowL', 'wpSuperSnowR'];
 
 				options = $.extend({}, defaults, options); // Extend default options.
