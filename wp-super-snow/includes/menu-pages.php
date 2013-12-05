@@ -70,7 +70,7 @@ namespace wp_super_snow // Root namespace.
 					echo '   </div>'."\n";
 
 					echo '   <div class="plugin-menu-page-panel-body'.((!plugin()->options['enable']) ? ' open' : '').' clearfix">'."\n";
-					echo '      <p style="float:right; margin:-5px 0 0 0; font-weight:bold;">WP Super Snow = <i class="fa fa-smile-o fa-4x"></i> happy visitors<em>!</em></p>'."\n";
+					echo '      <p style="float:right; margin:-5px 0 0 0; font-weight:bold;"><img src="'.esc_attr(plugin()->url('/client-s/images/flakes-icon.png')).'" style="vertical-align:middle;" /> = <i class="fa fa-smile-o fa-4x"></i> happy visitors<em>!</em></p>'."\n";
 					echo '      <p style="margin-top:1em;"><label class="switch-primary"><input type="radio" name="'.esc_attr(__NAMESPACE__).'[save_options][enable]" value="1"'.checked(plugin()->options['enable'], '1', FALSE).' /> <i class="fa fa-magic fa-flip-horizontal"></i> '.__('Yes, enable WP Super Snow!', plugin()->text_domain).'</label> &nbsp;&nbsp;&nbsp; <label><input type="radio" name="'.esc_attr(__NAMESPACE__).'[save_options][enable]" value="0"'.checked(plugin()->options['enable'], '0', FALSE).' /> '.__('No, disable.', plugin()->text_domain).'</label></p>'."\n";
 					echo '   </div>'."\n";
 
