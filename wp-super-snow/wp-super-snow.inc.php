@@ -45,7 +45,7 @@ namespace wp_super_snow // Root namespace.
 								                               $this->url('/client-s/images/snowball.png', 'relative'),
 								'total_flakes'              => '50', 'max_size' => '50', 'max_duration' => '25', 'use_flake_trans' => '0',
 
-								'conditionals'              => '', // PHP conditionals which prevent snow from falling.
+								'conditionals'              => '!wp_is_mobile()', // PHP conditionals that allow snow.
 
 								'uninstall_on_deactivation' => '0' // `0|1`.
 							); // Default options are merged with those defined by the site owner.

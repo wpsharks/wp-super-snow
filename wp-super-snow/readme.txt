@@ -52,13 +52,21 @@ No, this plugin pulls in ONE simple jQuery (JavaScript) file — very small. It 
 
 Yes, please check your Dashboard under: **WP Super Snow -› Virtual Snow Blower**.
 
+= CPU performance; should I be concerned? =
+
+If you increase the number of snowlfakes — yes. WP Super Snow can eat up a lot of CPU, even on modern computers when there are a large number of elements being moved around the screen at once. The default configuration that comes with WP Super Snow may have notably lower CPU utilization as it doesn't include a lot of extras, and the default number of snowflakes is reduced to improve speed. Consider lowering the speed; and also the amount of snowflakes to help reduce CPU use even further.
+
+note: WP Super Snow will attempt to use GPU-based hardware acceleration to animate the snow. Having GPU acceleration can help in reducing CPU utilization. Most modern browsers will support this; WP Super Snow takes advantage whenever it's possible (automatically).
+
 = What browsers are supported by this falling snow plugin? =
 
 Compatible w/ IE 10+, IE Mobile 10+, Firefox 5+, Chrome 4+, Safari 4+, iOS Safari 3.2+, Android 2.1+, Android Chrome 31+, Android Firefox 25+, BlackBerry 7+, Opera 12+, Opera Mobile 12.1+; and many other modern browsers. See also: <http://caniuse.com/css-animation>.
 
+note: If you take a look at **Dashboard -› WP Super Snow -› Forecast / Conditions**; you can enable WP Super Snow for mobile devices if you like. However, please be WARNED; WP Super Snow is known to reduce battery life on mobile devices. Also, on older cell phones this can cause problems for their processors. By default, WP Super Snow is not loaded for mobile devices (recommended behavior).
+
 = Are there any other requirements for this plugin to function properly? =
 
-This plugin requires jQuery (this already comes w/ WordPress). If you have WordPress, you already have jQuery. This plugin also requires PHP v5.3 (or higher).
+This plugin requires jQuery (comes w/ WordPress). If you have WordPress, you already have jQuery. This plugin also requires PHP v5.3 (or higher); please check with your hosting company about this. See also: the list of supported browsers above.
 
 == License ==
 
