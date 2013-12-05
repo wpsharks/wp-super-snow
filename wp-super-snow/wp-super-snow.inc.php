@@ -38,7 +38,7 @@ namespace wp_super_snow // Root namespace.
 							$this->default_options = array( // Default options.
 								'version'                   => $this->version,
 
-								'enable'                    => '1', // `0|1`.
+								'enable'                    => '0', // `0|1`.
 
 								'container'                 => 'body', 'z_index' => '9999999',
 								'flakes'                    => $this->url('/client-s/images/snowflake.png', 'relative')."\n".
