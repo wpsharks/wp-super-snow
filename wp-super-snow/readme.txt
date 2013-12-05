@@ -12,7 +12,7 @@ Contributors: WebSharks
 Donate link: http://www.websharks-inc.com/r/wp-theme-plugin-donation/
 Tags: snow, christmas snow, falling snow, jsnow, super snow, supersnow, snow effect, christmas snow, holiday snow, jquery snow, snowflake, snow flakes, snow effects, wp snow, let it snow, snowing, snowball, snow balls, christmas, holiday
 
-Adds a customizable falling snow effect to any holiday or Christmas site.
+Customizable falling snow effect for any holiday or Christmas site.
 
 == Description ==
 
