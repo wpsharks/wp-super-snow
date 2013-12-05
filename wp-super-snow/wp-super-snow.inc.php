@@ -40,7 +40,7 @@ namespace wp_super_snow // Root namespace.
 
 								'enable'                    => '0', // `0|1`.
 
-								'container'                 => 'body', 'z_index' => '9999999',
+								'container'                 => 'body', 'z_index' => '999999',
 								'flakes'                    => $this->url('/client-s/images/snowflake.png', 'relative')."\n".
 								                               $this->url('/client-s/images/snowball.png', 'relative'),
 								'total_flakes'              => '50', 'max_size' => '50', 'max_duration' => '25', 'use_flake_trans' => '0',

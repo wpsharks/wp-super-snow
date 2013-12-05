@@ -5,9 +5,9 @@
 		$.fn.wpSuperSnow = function(options) // Start snowing.
 			{
 				var i, left, visibility, duration, delay, size, wind, flake, $flake,
-					$head = $('head'), $body = $('body'), $container, position,
+					$head = $('head'), $body = $('body'), $container, position, initialDelays,
 
-					defaults = {flakes: [], totalFlakes: 50, zIndex: 9999999,
+					defaults = {flakes: [], totalFlakes: 50, zIndex: 999999,
 						maxSize        : 50, maxDuration: 25, useFlakeTrans: false},
 
 					flakeOnlyWinds = ['wpSuperSnow_l', 'wpSuperSnowFlake_l', 'wpSuperSnow_r', 'wpSuperSnowFlake_r'],
@@ -31,6 +31,7 @@
 					 $container = $(this), position = 'fixed'; // Default positioning.
 					 if($.inArray($container[0].nodeName.toLowerCase(), ['html', 'body']) === -1)
 						 $container.css({position: 'relative', overflow: 'hidden'}), position = 'absolute';
+					 initialDelays = [0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2];
 
 					 for($container = $(this), i = 1; i <= Number(options.totalFlakes); i++)
 						 {
@@ -38,9 +39,8 @@
 							 visibility = mtRand(1, 9);
 							 size = mtRand(1, Number(options.maxSize));
 
-							 duration = mtRand(Math.floor(Number(options.maxDuration) / 4),
-							                   Number(options.maxDuration));
-							 delay = mtRand(1, duration);
+							 duration = mtRand(Math.floor(Number(options.maxDuration) / 4), Number(options.maxDuration));
+							 delay = (initialDelays.length) ? initialDelays.shift() : mtRand(0, duration);
 
 							 flake = options.flakes[mtRand(0, options.flakes.length - 1)];
 							 wind = (flake.indexOf('flake') !== -1) // Flakes can handle more complex winds.
