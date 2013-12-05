@@ -8,7 +8,7 @@
 					$head = $('head'), $body = $('body'), $container, position,
 
 					defaults = {flakes: [], totalFlakes: 50, zIndex: 9999999,
-						maxSize        : 50, maxDuration: 25, useFlakeTrans: true},
+						maxSize        : 50, maxDuration: 25, useFlakeTrans: false},
 
 					flakeOnlyWinds = ['wpSuperSnow_l', 'wpSuperSnowFlake_l', 'wpSuperSnow_r', 'wpSuperSnowFlake_r'],
 					compatibleWinds = ['wpSuperSnow_l', 'wpSuperSnow_r'];
@@ -53,7 +53,7 @@
 
 								  'position': position,
 								  'z-index' : Number(options.zIndex),
-								  'left'    : left + '%', 'top': '-500px',
+								  'left'    : left + '%', 'top': '-200px',
 								  'opacity' : '0',
 
 								  'user-select'        : 'none',

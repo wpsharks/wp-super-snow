@@ -131,8 +131,8 @@ namespace wp_super_snow // Root namespace.
 					echo '                  <h3>'.__('Use Snow Flake Transparency Effects?', plugin()->text_domain).'</h3>'."\n";
 					echo '                  <p>'.__('Snowflake animations always include transpareny effects. This setting enables/disables some ADDITIONAL snowflake image transparency effects for an enhanced viewing experience in modern browsers.', plugin()->text_domain).'</p>'."\n";
 					echo '                  <p><select name="'.esc_attr(__NAMESPACE__).'[save_options][use_flake_trans]">'."\n";
-					echo '                        <option value="1"'.selected(plugin()->options['use_flake_trans'], '1', FALSE).'>'.__('Yes, add image transparency effects (recommended for best visual experience).', plugin()->text_domain).'</option>'."\n";
 					echo '                        <option value="0"'.selected(plugin()->options['use_flake_trans'], '0', FALSE).'>'.__('No, don\'t use image transparency (recommended for improved performance; speedier).', plugin()->text_domain).'</option>'."\n";
+					echo '                        <option value="1"'.selected(plugin()->options['use_flake_trans'], '1', FALSE).'>'.__('Yes, add image transparency effects (best visual experience).', plugin()->text_domain).'</option>'."\n";
 					echo '                     </select></p>'."\n";
 					echo '               </td>'."\n";
 					echo '               <td style="width:1px; vertical-align:top; white-space:nowrap;">'."\n";
@@ -159,7 +159,7 @@ namespace wp_super_snow // Root namespace.
 					echo '      <table style="width:100%;"><tr><td style="width:1px; font-weight:bold; white-space:nowrap;"><code>if(</code></td><td><input type="text" name="'.esc_attr(__NAMESPACE__).'[save_options][conditionals]" value="'.esc_attr(plugin()->options['conditionals']).'" /></td><td style="width:1px; font-weight:bold; white-space:nowrap;"><code>)</code></td></tr></table>'."\n";
 					echo '      <p class="info">'.__('<strong>Example:</strong> <code>is_page(\'christmas-promo\')</code> e.g. only run WP Super Snow on one specific page.', plugin()->text_domain).'</p>'."\n";
 					echo '      <p class="info">'.sprintf(__('<strong>Example:</strong> <code>time() >= strtotime(\'%1$s-12-01\') && time() <= strtotime(\'%1$s-12-31\')</code> e.g. only run WP Super Snow in the month of December %1$s.', plugin()->text_domain), date('Y')).'</p>'."\n";
-					echo '      <p class="info">'.__('<strong>Example:</strong> <code>preg_match(\'\')</code> e.g. only run WP Super Snow in browsers; NOT on mobile devices.', plugin()->text_domain).'</p>'."\n";
+					echo '      <p class="info">'.__('<strong>Example:</strong> <code>!wp_is_mobile()</code> e.g. only run in browsers; NOT on mobile devices. See also: <a href="http://detectmobilebrowsers.com/" target="_blank">DetectMobileBrowsers.com</a>', plugin()->text_domain).'</p>'."\n";
 					echo '   </div>'."\n";
 
 					echo '</div>'."\n";

@@ -43,7 +43,7 @@ namespace wp_super_snow // Root namespace.
 								'container'                 => 'body', 'z_index' => '9999999',
 								'flakes'                    => $this->url('/client-s/images/snowflake.png', 'relative')."\n".
 								                               $this->url('/client-s/images/snowball.png', 'relative'),
-								'total_flakes'              => '50', 'max_size' => '50', 'max_duration' => '25', 'use_flake_trans' => '1',
+								'total_flakes'              => '50', 'max_size' => '50', 'max_duration' => '25', 'use_flake_trans' => '0',
 
 								'conditionals'              => '', // PHP conditionals which prevent snow from falling.
 
