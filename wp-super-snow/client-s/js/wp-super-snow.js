@@ -39,8 +39,8 @@
 							 visibility = mtRand(1, 9);
 							 size = mtRand(1, Number(options.maxSize));
 
-							 duration = mtRand(Math.floor(Number(options.maxDuration) / 4), Number(options.maxDuration));
-							 delay = (initialDelays.length) ? initialDelays.shift() : mtRand(0, Math.floor(duration / 2));
+							 duration = mtRand(Math.floor(Number(options.maxDuration) / 5), Number(options.maxDuration));
+							 delay = (initialDelays.length) ? initialDelays.shift() : mtRand(0, Math.floor(duration / 5));
 
 							 flake = options.flakes[mtRand(0, options.flakes.length - 1)];
 							 wind = (flake.indexOf('flake') !== -1) // Flakes can handle more complex winds.
