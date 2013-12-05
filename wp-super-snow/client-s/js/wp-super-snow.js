@@ -40,7 +40,7 @@
 							 size = mtRand(1, Number(options.maxSize));
 
 							 duration = mtRand(Math.floor(Number(options.maxDuration) / 4), Number(options.maxDuration));
-							 delay = (initialDelays.length) ? initialDelays.shift() : mtRand(0, duration);
+							 delay = (initialDelays.length) ? initialDelays.shift() : mtRand(0, Math.floor(duration / 2));
 
 							 flake = options.flakes[mtRand(0, options.flakes.length - 1)];
 							 wind = (flake.indexOf('flake') !== -1) // Flakes can handle more complex winds.
