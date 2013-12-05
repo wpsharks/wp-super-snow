@@ -102,24 +102,20 @@ namespace wp_super_snow // Root namespace.
 							delete_option(__NAMESPACE__.'_errors');
 						}
 
+					public function actions()
+						{
+							if(empty($_REQUEST[__NAMESPACE__])) return;
+
+							require_once dirname(__FILE__).'/includes/actions.php';
+						}
+
 					public function is_pro_preview()
 						{
-							static $is;
+							static $is; // Static cache.
 							if(isset($is)) return $is;
 
 							if(!empty($_REQUEST[__NAMESPACE__.'_pro_preview']))
 								return ($is = TRUE);
-
-							return ($is = FALSE);
-						}
-
-					public function is_multisite_farm_blog()
-						{
-							static $is;
-							if(isset($is)) return $is;
-
-							if(defined('MULTISITE_FARM') && MULTISITE_FARM)
-								if(!is_main_site()) return ($is = TRUE);
 
 							return ($is = FALSE);
 						}
@@ -144,11 +140,37 @@ namespace wp_super_snow // Root namespace.
 							return str_replace("'", str_repeat('\\', abs($times))."'", (string)$string);
 						}
 
-					public function actions()
+					public function is_multisite_farm_blog()
 						{
-							if(empty($_REQUEST[__NAMESPACE__])) return;
+							static $is; // Static cache.
+							if(isset($is)) return $is;
 
-							require_once dirname(__FILE__).'/includes/actions.php';
+							if(defined('MULTISITE_FARM') && MULTISITE_FARM)
+								if(!is_main_site()) $is = TRUE;
+
+							if(!isset($is)) $is = FALSE; // Default value.
+
+							return ($is = apply_filters(__METHOD__, $is, get_defined_vars()));
+						}
+
+					public function forecasts_snow()
+						{
+							static $snow; // Static cache.
+							if(isset($snow)) return $snow;
+
+							if(!$this->options['enable'])
+								$snow = FALSE; // Nope.
+
+							else if($this->is_multisite_farm_blog() && wp_is_mobile())
+								$snow = FALSE; // No snow.
+
+							else if(!$this->is_multisite_farm_blog() && $this->options['conditionals']
+							        && !eval('return ('.$this->options['conditionals'].');')
+							) $snow = FALSE; // No snow here.
+
+							if(!isset($snow)) $snow = TRUE; // Default behavior.
+
+							return ($snow = apply_filters(__METHOD__, $snow, get_defined_vars()));
 						}
 
 					public function enqueue_scripts() // Scripts on-site.
@@ -156,9 +178,8 @@ namespace wp_super_snow // Root namespace.
 							if(!$this->options['enable'])
 								return; // Nothing to do.
 
-							if(!$this->is_multisite_farm_blog()) // Do NOT allow `eval` on multisite farm blogs.
-								if($this->options['conditionals'] && !eval('return ('.$this->options['conditionals'].');'))
-									return; // No snow in the forecast here.
+							if(!$this->forecasts_snow())
+								return; // Nothing to do.
 
 							$deps = array('jquery'); // Dependencies.
 
@@ -167,7 +188,7 @@ namespace wp_super_snow // Root namespace.
 							$_this = $this; // Reference used below.
 							add_action('wp_footer', function () use ($_this)
 								{
-									$flakes = preg_split('/['."\r\n".']+/', // A line-delimited list of image paths.
+									$flakes = preg_split('/['."\r\n".']+/', // A line-delimited list.
 									                     $_this->options['flakes'], NULL, PREG_SPLIT_NO_EMPTY);
 
 									echo '<script type="text/javascript">'."\n".
