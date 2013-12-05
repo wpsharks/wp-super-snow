@@ -146,24 +146,26 @@ namespace wp_super_snow // Root namespace.
 
 					echo '</div>'."\n";
 
-					echo '<div class="plugin-menu-page-panel">'."\n";
+					if(!plugin()->is_multisite_farm_blog())
+						{
+							echo '<div class="plugin-menu-page-panel">'."\n";
 
-					echo '   <div class="plugin-menu-page-panel-heading">'."\n";
-					echo '      <i class="fa fa-cloud"></i> '.__('Forecasting / Conditions', plugin()->text_domain)."\n";
-					echo '   </div>'."\n";
+							echo '   <div class="plugin-menu-page-panel-heading">'."\n";
+							echo '      <i class="fa fa-cloud"></i> '.__('Forecasting / Conditions', plugin()->text_domain)."\n";
+							echo '   </div>'."\n";
 
-					echo '   <div class="plugin-menu-page-panel-body clearfix">'."\n";
-					echo '      <span class="fa-stack fa-2x" style="float:right; margin: 0 0 0 25px;"><i class="fa fa-cloud fa-stack-2x"></i><i class="fa fa-code fa-stack-1x fa-inverse"></i></span>'."\n";
-					echo '      <h3>'.__('Have Conditions to Check for?', plugin()->text_domain).'</h3>'."\n";
-					echo '      <p>'.__('By default, WP Super Snow is displayed on every page of your site (and for all browsers/devices). However, if there are conditions you\'d like to satisify before WP Super Snow is loaded (e.g. only load it on certain Posts/Pages; or only between specific dates/times; or only on certain devices); you can specify those conditions here using <a href="http://codex.wordpress.org/Conditional_Tags" target="_blank">Conditional Tags</a>.', plugin()->text_domain).'</p>'."\n";
-					echo '      <table style="width:100%;"><tr><td style="width:1px; font-weight:bold; white-space:nowrap;"><code>if(</code></td><td><input type="text" name="'.esc_attr(__NAMESPACE__).'[save_options][conditionals]" value="'.esc_attr(plugin()->options['conditionals']).'" /></td><td style="width:1px; font-weight:bold; white-space:nowrap;"><code>)</code></td></tr></table>'."\n";
-					echo '      <p class="info">'.__('<strong>Example:</strong> <code>is_page(\'christmas-promo\')</code> e.g. only run WP Super Snow on one specific page.', plugin()->text_domain).'</p>'."\n";
-					echo '      <p class="info">'.sprintf(__('<strong>Example:</strong> <code>time() >= strtotime(\'%1$s-12-01\') && time() <= strtotime(\'%1$s-12-31\')</code> e.g. only run WP Super Snow in the month of December %1$s.', plugin()->text_domain), date('Y')).'</p>'."\n";
-					echo '      <p class="info">'.__('<strong>Example:</strong> <code>!wp_is_mobile()</code> e.g. only run in browsers; NOT on mobile devices. See also: <a href="http://detectmobilebrowsers.com/" target="_blank">DetectMobileBrowsers.com</a>', plugin()->text_domain).'</p>'."\n";
-					echo '   </div>'."\n";
+							echo '   <div class="plugin-menu-page-panel-body clearfix">'."\n";
+							echo '      <span class="fa-stack fa-2x" style="float:right; margin: 0 0 0 25px;"><i class="fa fa-cloud fa-stack-2x"></i><i class="fa fa-code fa-stack-1x fa-inverse"></i></span>'."\n";
+							echo '      <h3>'.__('Have Conditions to Check for?', plugin()->text_domain).'</h3>'."\n";
+							echo '      <p>'.__('By default, WP Super Snow is displayed on every page of your site (and for all browsers/devices). However, if there are conditions you\'d like to satisify before WP Super Snow is loaded (e.g. only load it on certain Posts/Pages; or only between specific dates/times; or only on certain devices); you can specify those conditions here using <a href="http://codex.wordpress.org/Conditional_Tags" target="_blank">Conditional Tags</a>.', plugin()->text_domain).'</p>'."\n";
+							echo '      <table style="width:100%;"><tr><td style="width:1px; font-weight:bold; white-space:nowrap;"><code>if(</code></td><td><input type="text" name="'.esc_attr(__NAMESPACE__).'[save_options][conditionals]" value="'.esc_attr(plugin()->options['conditionals']).'" /></td><td style="width:1px; font-weight:bold; white-space:nowrap;"><code>)</code></td></tr></table>'."\n";
+							echo '      <p class="info">'.__('<strong>Example:</strong> <code>is_page(\'christmas-promo\')</code> e.g. only run WP Super Snow on one specific page.', plugin()->text_domain).'</p>'."\n";
+							echo '      <p class="info">'.sprintf(__('<strong>Example:</strong> <code>time() >= strtotime(\'%1$s-12-01\') && time() <= strtotime(\'%1$s-12-31\')</code> e.g. only run WP Super Snow in the month of December %1$s.', plugin()->text_domain), date('Y')).'</p>'."\n";
+							echo '      <p class="info">'.__('<strong>Example:</strong> <code>!wp_is_mobile()</code> e.g. only run in browsers; NOT on mobile devices. See also: <a href="http://detectmobilebrowsers.com/" target="_blank">DetectMobileBrowsers.com</a>', plugin()->text_domain).'</p>'."\n";
+							echo '   </div>'."\n";
 
-					echo '</div>'."\n";
-
+							echo '</div>'."\n";
+						}
 					echo '<div class="plugin-menu-page-save">'."\n";
 					echo '   <button type="submit">'.__('Save All Changes', plugin()->text_domain).' <i class="fa fa-save"></i></button>'."\n";
 					echo '</div>'."\n";

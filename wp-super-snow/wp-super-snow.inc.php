@@ -113,6 +113,17 @@ namespace wp_super_snow // Root namespace.
 							return ($is = FALSE);
 						}
 
+					public function is_multisite_farm_blog()
+						{
+							static $is;
+							if(isset($is)) return $is;
+
+							if(defined('MULTISITE_FARM') && MULTISITE_FARM)
+								if(!is_main_site()) return ($is = TRUE);
+
+							return ($is = FALSE);
+						}
+
 					public function url($file = '', $scheme = '')
 						{
 							static $plugin_directory; // Static cache.
@@ -145,8 +156,9 @@ namespace wp_super_snow // Root namespace.
 							if(!$this->options['enable'])
 								return; // Nothing to do.
 
-							if($this->options['conditionals'] && !eval('return ('.$this->options['conditionals'].');'))
-								return; // Conditionals state that we should NOT display this right now.
+							if(!$this->is_multisite_farm_blog()) // Do NOT allow `eval` on multisite farm blogs.
+								if($this->options['conditionals'] && !eval('return ('.$this->options['conditionals'].');'))
+									return; // No snow in the forecast here.
 
 							$deps = array('jquery'); // Dependencies.
 
