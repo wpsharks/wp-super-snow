@@ -31,7 +31,7 @@
 					 $container = $(this), position = 'fixed'; // Default positioning.
 					 if($.inArray($container[0].nodeName.toLowerCase(), ['html', 'body']) === -1)
 						 $container.css({position: 'relative', overflow: 'hidden'}), position = 'absolute';
-					 initialDelays = [0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2];
+					 initialDelays = [0, 0, 1, 1, 2, 2, 3, 3, 4, 5, 6, 7, 8, 9, 10]; // Start snowing immediately.
 
 					 for($container = $(this), i = 1; i <= Number(options.totalFlakes); i++)
 						 {
