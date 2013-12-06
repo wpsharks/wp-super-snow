@@ -1,4 +1,4 @@
-=== WP Super Snow (Falling Snow — Customizable) ===
+=== WP Super Snow (Falling Snow, Customizable) ===
 
 Stable tag: 131203
 Requires at least: 3.7
