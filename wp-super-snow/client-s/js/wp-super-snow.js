@@ -10,7 +10,7 @@
 					defaults = {flakes: [], totalFlakes: 50, zIndex: 999999,
 						maxSize        : 50, maxDuration: 25, useFlakeTrans: false},
 
-					flakeOnlyWinds = ['wpSuperSnow_l', 'wpSuperSnowFlake_l', 'wpSuperSnow_r', 'wpSuperSnowFlake_r'],
+					flakeOnlyWinds = ['wpSuperSnowFlake_l', 'wpSuperSnowFlake_r'],
 					compatibleWinds = ['wpSuperSnow_l', 'wpSuperSnow_r'];
 
 				options = $.extend({}, defaults, options); // Extend default options.
