@@ -85,8 +85,6 @@ namespace wp_super_snow // Root namespace.
 							$this->options['version'] = $this->version;
 							update_option(__NAMESPACE__.'_options', $this->options);
 
-							if(!$this->options['enable']) return; // Nothing more to do.
-
 							$notices   = (is_array($notices = get_option(__NAMESPACE__.'_notices'))) ? $notices : array();
 							$notices[] = __('<strong>WP Super Snow:</strong> detected a new version of itself. Recompiling w/ latest version... all done :-)', $this->text_domain);
 							update_option(__NAMESPACE__.'_notices', $notices);
