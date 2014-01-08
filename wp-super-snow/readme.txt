@@ -89,6 +89,16 @@ Released under the terms of the [GNU General Public License](http://www.gnu.org/
 	- GPL-Compatible License <http://fortawesome.github.io/Font-Awesome/license/>
 	- Font Awesome <http://fortawesome.github.io/Font-Awesome/>
 
+== Translations ==
+
+This plugin comes with a POT file for easy translation.
+See: `/includes/translations/wp-super-snow.pot`
+
+= Existing Translations =
+
+* **Serbo-Croatian** — by Borisa Djuraskovic <http://www.webhostinghub.com>
+See: `/includes/translations/wp-super-snow-sr_RS.mo`
+
 == Upgrade Notice ==
 
 = v131203 =
