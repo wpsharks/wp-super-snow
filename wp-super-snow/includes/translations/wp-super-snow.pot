@@ -1,0 +1,333 @@
+# Copyright (C) 2014 WP Super Snow
+# This file is distributed under the same license as the WP Super Snow package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Super Snow 131203\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-super-snow\n"
+"POT-Creation-Date: 2014-01-08 04:54:55+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: includes/menu-pages.php:16
+msgid "Save"
+msgstr ""
+
+#: includes/menu-pages.php:19
+msgid ""
+"Restore default plugin options? You will lose all of your current settings! "
+"Are you absolutely sure about this?"
+msgstr ""
+
+#: includes/menu-pages.php:21
+msgid "Restore"
+msgstr ""
+
+#: includes/menu-pages.php:23
+msgid "All Panels"
+msgstr ""
+
+#: includes/menu-pages.php:35
+msgid "Plugin Options"
+msgstr ""
+
+#: includes/menu-pages.php:42
+msgid "Options updated successfully."
+msgstr ""
+
+#: includes/menu-pages.php:48
+msgid "Default options successfully restored."
+msgstr ""
+
+#: includes/menu-pages.php:54
+msgid "close"
+msgstr ""
+
+#: includes/menu-pages.php:55
+msgid ""
+"<strong>Pro Features (Preview)</strong> ~ New option panels below. Please "
+"explore before <a href=\"http://www.websharks-inc.com/product/wp-super-snow/"
+"\" target=\"_blank\">upgrading <i class=\"fa fa-heart-o\"></i></a>.<br /"
+"><small>NOTE: the free version of WP Super Snow (this LITE version); is more-"
+"than-adequate for most sites. Please upgrade only if you desire advanced "
+"features or would like to support the developer.</small>"
+msgstr ""
+
+#: includes/menu-pages.php:61
+msgid "WP Super Snow is currently disabled; please review options below."
+msgstr ""
+
+#: includes/menu-pages.php:69
+msgid "Enable/Disable"
+msgstr ""
+
+#: includes/menu-pages.php:74
+msgid "Yes, enable WP Super Snow!"
+msgstr ""
+
+#: includes/menu-pages.php:74
+msgid "No, disable."
+msgstr ""
+
+#: includes/menu-pages.php:76
+msgid ""
+"<strong>HUGE Time-Saver:</strong> Approx. 95% of all WordPress sites running "
+"WP Super Snow, simply enable it here; and that's it :-) <strong>No further "
+"configuration is necessary (really).</strong> All of the other options (down "
+"below) are already tuned for the BEST performance on a typical WordPress "
+"installation. Simply enable WP Super Snow here and click \"Save All Changes"
+"\". If you get any warnings please follow the instructions given. Otherwise, "
+"you're good <i class=\"fa fa-smile-o\"></i>. This plugin is designed to run "
+"just fine like it is. Take it for a spin right away; you can always fine-"
+"tune things later if you deem necessary."
+msgstr ""
+
+#: includes/menu-pages.php:84
+msgid "Deactivation Safeguards"
+msgstr ""
+
+#: includes/menu-pages.php:89
+msgid "Uninstall on Deactivation; or Safeguard Options?"
+msgstr ""
+
+#: includes/menu-pages.php:90
+msgid ""
+"<strong>Tip:</strong> By default, if you deactivate WP Super Snow from the "
+"plugins menu in WordPress; nothing is lost. However, if you want to "
+"uninstall WP Super Snow you should set this to <code>Yes</code> and "
+"<strong>THEN</strong> deactivate it from the plugins menu in WordPress. This "
+"way WP Super Snow will erase your options for the plugin. It erases itself "
+"from existence completely."
+msgstr ""
+
+#: includes/menu-pages.php:92
+msgid ""
+"If I deactivate WP Super Snow please safeguard my options (recommended)."
+msgstr ""
+
+#: includes/menu-pages.php:93
+msgid "Yes, uninstall (completely erase) WP Super Snow on deactivation."
+msgstr ""
+
+#: includes/menu-pages.php:102
+msgid "Virtual Snow Blower"
+msgstr ""
+
+#: includes/menu-pages.php:111
+msgid "Preview"
+msgstr ""
+
+#: includes/menu-pages.php:112
+msgid "Virtual Snow Blower (Advanced Configuration)"
+msgstr ""
+
+#: includes/menu-pages.php:113
+msgid ""
+"The options below support an advanced configuration of WP Super Snow. The "
+"defaults work just fine; but you might like to change things up just a bit. "
+"It's fun. <i class=\"fa fa-smile-o\"></i>"
+msgstr ""
+
+#: includes/menu-pages.php:115
+msgid "WP Super Snow Container"
+msgstr ""
+
+#: includes/menu-pages.php:116
+msgid ""
+"This is almost always the <code>body</code> tag. However, you might decide "
+"to change this if you have a specific area of your site that WP Super Snow "
+"should be restricted to. Note: if you DO change this, please use a CSS "
+"selector expression for jQuery; e.g. <code>#my_div</code>"
+msgstr ""
+
+#: includes/menu-pages.php:118
+msgid "z-Index for all Snowflakes"
+msgstr ""
+
+#: includes/menu-pages.php:119
+msgid ""
+"This is the layered stack order for all snowflakes; e.g. <code>style=\"z-"
+"index:999999;\"</code>. Generally speaking, it's best to keep snowflakes on "
+"top of everything else. See also: <a href=\"http://www.w3schools.com/cssref/"
+"pr_pos_z-index.asp\" target=\"_blank\">z-index @ W3Schools</a> if you're not "
+"familiar with this term."
+msgstr ""
+
+#: includes/menu-pages.php:121
+msgid "Snowflake Images (a Line-Delimited List Please)"
+msgstr ""
+
+#: includes/menu-pages.php:124
+msgid ""
+"<strong>Tip:</strong> images that have the word <code>flake</code> anywhere "
+"their URL/path are spinned in a 3D rotation at random (WP Super Snow assumes "
+"these are actual snowflake graphics). All other graphics rotate left-to-"
+"right and/or right-to-left at random (e.g. compatiblity mode)."
+msgstr ""
+
+#: includes/menu-pages.php:125
+msgid "Total Snowflakes to Process"
+msgstr ""
+
+#: includes/menu-pages.php:126
+msgid ""
+"Snowflakes are processed (animated) in and out of view at random intervals. "
+"This setting determines the total number of snowflakes that should ever be "
+"processed at the same time. Note: the more snowflakes you process, the "
+"slower your site might become."
+msgstr ""
+
+#: includes/menu-pages.php:128
+msgid "Max Snowflake Size (in Pixels)"
+msgstr ""
+
+#: includes/menu-pages.php:129
+msgid ""
+"Snowflake sizes are always random. However, you can control the randomizer "
+"(to a certain extent) by defining the largest possible size. Note: the "
+"default snowflake graphics that come with WP Super Snow will support up to "
+"<code>100</code> pixels (before distortion occurs)."
+msgstr ""
+
+#: includes/menu-pages.php:131
+msgid "Max Snowflake Duration (in Seconds)"
+msgstr ""
+
+#: includes/menu-pages.php:132
+msgid ""
+"Snowflake animations are always random. However, you can control the "
+"randomizer (to a certain extent) by defining the longest possible duration "
+"of a falling snowflake. Note: a larger number = a slower speed; a smaller "
+"number = faster (e.g. a shorter duration)."
+msgstr ""
+
+#: includes/menu-pages.php:134
+msgid "Use Snow Flake Transparency Effects?"
+msgstr ""
+
+#: includes/menu-pages.php:135
+msgid ""
+"Snowflake animations always include transpareny effects. This setting "
+"enables/disables some ADDITIONAL snowflake image transparency effects for an "
+"enhanced viewing experience in modern browsers (best on dark backgrounds)."
+msgstr ""
+
+#: includes/menu-pages.php:137
+msgid ""
+"No, don't use image transparency (recommended for improved performance; "
+"speedier)."
+msgstr ""
+
+#: includes/menu-pages.php:138
+msgid "Yes, add image transparency effects (best visual experience)."
+msgstr ""
+
+#: includes/menu-pages.php:143
+msgid ""
+"<strong>Tip:</strong> snowflakes will fall inside this graphic. Please click "
+"the Preview button (above) to see changes in configuration."
+msgstr ""
+
+#: includes/menu-pages.php:157
+msgid "Forecasting / Conditions"
+msgstr ""
+
+#: includes/menu-pages.php:162
+msgid "Have Conditions to Check for?"
+msgstr ""
+
+#: includes/menu-pages.php:163
+msgid ""
+"By default, WP Super Snow is displayed on every page of your site (but "
+"DISABLED for mobile devices; see note below). If there are other conditions "
+"you'd like to satisify before WP Super Snow is loaded (e.g. only load it on "
+"certain Posts/Pages; or only between specific dates/times; or only on "
+"certain devices); you can specify those conditions here using <a href="
+"\"http://codex.wordpress.org/Conditional_Tags\" target=\"_blank"
+"\">Conditional Tags</a>."
+msgstr ""
+
+#: includes/menu-pages.php:165
+msgid ""
+"<strong>Example:</strong> <code>!wp_is_mobile() && is_page('christmas-promo')"
+"</code> e.g. only run on one specific page."
+msgstr ""
+
+#: includes/menu-pages.php:166
+msgid ""
+"<strong>Example:</strong> <code>!wp_is_mobile() && !is_ssl()</code> e.g. NOT "
+"on mobile devices &amp; NOT over HTTPS (SSL)."
+msgstr ""
+
+#: includes/menu-pages.php:167
+msgid ""
+"<strong>Example:</strong> <code>!wp_is_mobile() && time() >= strtotime"
+"('%1$s-12-01') && time() <= strtotime('%1$s-12-31')</code> e.g. only run in "
+"the month of December %1$s."
+msgstr ""
+
+#: includes/menu-pages.php:168
+msgid ""
+"<strong>Example:</strong> <code>!wp_is_mobile()</code> e.g. only run on "
+"desktops/laptops; NOT on mobile devices. See also: <a href=\"http://"
+"detectmobilebrowsers.com/\" target=\"_blank\">DetectMobileBrowsers.com</a>"
+msgstr ""
+
+#: includes/menu-pages.php:169
+msgid ""
+"<strong>Why disable on mobile devices?</strong> By default, mobile devices "
+"are excluded from the snow effect; only because it's not good for their CPUs "
+"(or their batteries). If your local marketing department insists, \"This "
+"must work on mobile!\" despite being warned of the downsides, you can remove "
+"that condition above."
+msgstr ""
+
+#: includes/menu-pages.php:175
+msgid "Save All Changes"
+msgstr ""
+
+#: wp-super-snow.inc.php:89
+msgid ""
+"<strong>WP Super Snow:</strong> detected a new version of itself. "
+"Recompiling w/ latest version... all done :-)"
+msgstr ""
+
+#: wp-super-snow.inc.php:230 wp-super-snow.inc.php:231
+msgid "Super Snow"
+msgstr ""
+
+#: wp-super-snow.inc.php:280
+msgid ""
+"Please disable the LITE version of WP Super Snow before you activate the PRO "
+"version."
+msgstr ""
+
+#: wp-super-snow.php:22
+msgid ""
+"<div class=\"error\"><p>Plugin NOT active. This version of WP Super Snow "
+"requires PHP v5.3+.</p></div>"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WP Super Snow"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.websharks-inc.com/product/wp-super-snow/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Beautiful falling snow plugin for any WordPress holiday or Christmas site."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "WebSharks, Inc."
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.websharks-inc.com"
+msgstr ""
