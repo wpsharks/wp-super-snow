@@ -66,7 +66,7 @@ note: If you take a look at **Dashboard -› WP Super Snow -› Forecast / Condi
 
 = Are there any other requirements for this plugin to function properly? =
 
-This plugin requires jQuery (comes w/ WordPress). If you have WordPress, you already have jQuery. This plugin also requires PHP v5.3 (or higher); please check with your hosting company about this. See also: the list of supported browsers above.
+This plugin requires jQuery (comes w/ WordPress). If you have WordPress, you already have jQuery. This plugin also requires PHP v5.4 (or higher); please check with your hosting company about this. See also: the list of supported browsers above.
 
 == License ==
 
