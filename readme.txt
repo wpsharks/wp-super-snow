@@ -8,7 +8,7 @@ Text Domain: wp-super-snow
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Contributors: WebSharks, JasWSInc
+Contributors: WebSharks, JasWSInc, raamdev, sitegeek, kristineds
 Donate link: http://websharks-inc.com/r/wp-theme-plugin-donation/
 Tags: snow, christmas snow, falling snow, jsnow, super snow, supersnow, snow effect, christmas snow, holiday snow, jquery snow, snowflake, snow flakes, snow effects, wp snow, let it snow, snowing, snowball, snow balls, christmas, holiday
 
@@ -98,16 +98,16 @@ See: `/includes/translations/wp-super-snow.pot`
 
 = v151204 =
 
+Now requires PHP v5.4+. For further details, please see: <http://websharks-inc.com/product/wp-super-snow/>.
+
+== Changelog ==
+
+= v151204 =
+
 - Now requires PHP v5.4+.
 - Tested for compatibility w/ WordPress v4.3, and 4.4+.
 - General cleanup and organizational improvements in code.
 - Back-end UI enhancements.
-
-= v131203 =
-
-Now requires PHP v5.3+. For further details, please see: <http://websharks-inc.com/product/wp-super-snow/>.
-
-== Changelog ==
 
 = v131203 =
 
