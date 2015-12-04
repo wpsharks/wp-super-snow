@@ -1,0 +1,179 @@
+// Compile this file.
+@import '../../vendor/package/bourbon/bourbon-v4.2.3/bourbon';
+@import '../../vendor/websharks/sharkicons/src/sharkicons';
+@include sharkicons-font('../../vendor/websharks/sharkicons/src');
+@include sharkicon-short-classes;
+
+// Menu page includes.
+@import 'menu-pages/colors';
+@import 'menu-pages/html-tag';
+@import 'menu-pages/wpwrap';
+
+// Menu page styles.
+.plugin-menu-page {
+  position:                   relative;
+  margin:                     1.25em 1.75em 1.25em 0.25em;
+
+  select,
+  textarea,
+  input[type='text'],
+  input[type='email'],
+  input[type='url'] {
+    width:                    100%;
+    box-sizing:               border-box;
+  }
+
+  .-info {
+    border-radius:           .25em;
+    padding:                 .5em .8em;
+    background:               $info-bg-color;
+    border:                   1px solid $info-border-color;
+
+    &,
+    & * {
+      font-size:             .95em;
+    }
+  }
+
+  > .-heading {
+    > .-restore {
+      margin-top:             1em;
+      float:                  right;
+    }
+
+    > .-upsells {
+      float:                  right;
+      text-align:             center;
+      margin:                 1em 2em 0 0;
+
+      > a {
+        text-decoration:      none;
+        display:              block;
+      }
+    }
+
+    > .-logo {
+      display:                block;
+    }
+  }
+
+  > .-body {
+    width:                    100%;
+    margin:                   1.25em 0 0;
+
+    > .-container {
+      width:                  100%;
+
+      > .-panel {
+        width:                100%;
+        margin:               0 0 1.25em;
+        position:             relative;
+
+        &::before,
+        &::after {
+          @include transform(rotate(-3deg));
+
+          z-index:           -2;
+          content:            '';
+          position:           absolute;
+          bottom:             15px;
+          left:               10px;
+          width:              50%;
+          height:             20%;
+          max-width:          300px;
+          max-height:         100px;
+          box-shadow:         0 15px 10px $panel-shadow-color-c;
+        }
+
+        &::after {
+          @include transform(rotate(3deg));
+
+          right:              10px;
+          left:               auto;
+        }
+
+        > .-toggler {
+          &::before {
+            top:              0;
+            right:           .25em;
+            position:         relative;
+            content:          '\f142';
+            font:             400 1.5em/1em dashicons;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-decoration:  none !important;
+            display:          inline-block;
+            padding:          0.5em 0;
+          }
+        }
+
+        &.closed > .-toggler::before {
+          content:            '\f140';
+        }
+
+        > .-heading {
+          cursor:             pointer;
+        }
+
+        > .-body {
+          @include clearfix;
+
+          margin-bottom:      0;
+
+          h3 {
+            padding:          0;
+            margin:           0 0 .25em;
+
+            + p {
+              margin-top:     0;
+            }
+          }
+
+          p:last-child {
+            margin-bottom:    0 !important;
+          }
+
+          hr {
+            border:           0;
+            padding:          0;
+            height:           1px;
+            margin:           1em 0;
+            background:       linear-gradient(to left, $hr-bg-color-a, $hr-bg-color-b, $hr-bg-color-c);
+
+            &.-spacer-only {
+              margin:         0;
+              background:     none;
+            }
+          }
+
+          .-vsb-button {
+            float:            right;
+            margin:           0 0 0 2em;
+          }
+        }
+
+        &:first-child .-body {
+          .-enable {
+            border-radius:   .25em;
+            font-weight:      bold;
+            display:          inline-block;
+            color:            $enable-color;
+            padding:         .5em 1.25em .5em 1em;
+            border:           1px solid $enable-border-color;
+            background-image: linear-gradient(to bottom, $enable-bg-gradient-color-a, $enable-bg-gradient-color-b);
+          }
+        }
+      }
+
+      .-save {
+        padding:              0;
+        margin:               2.25em 0;
+
+        .-button {
+          width:              100%;
+          box-sizing:         border-box;
+        }
+      }
+    }
+  }
+}
