@@ -3,10 +3,10 @@ namespace WebSharks\WpSuperSnow;
 
 class Actions extends AbsBase
 {
-    protected $allowed_actions = array(
+    protected $allowed_actions = [
         'saveOptions',
         'restoreDefaultOptions',
-    );
+    ];
 
     public function __construct(Plugin $Plugin)
     {
@@ -24,13 +24,15 @@ class Actions extends AbsBase
 
     public function saveOptions($args)
     {
+        $args = (array) $args;
+
         if (!current_user_can($this->Plugin->cap)) {
             return; // Nothing to do.
         }
         if (empty($_REQUEST['_wpnonce']) || !wp_verify_nonce($_REQUEST['_wpnonce'])) {
             return; // Unauthenticated POST data.
         }
-        $options = stripslashes_deep((array) $args);
+        $options = stripslashes_deep($args);
         $options = array_map('trim', array_map('strval', $options));
 
         $this->Plugin->options = array_merge($this->Plugin->default_options, $options);
@@ -38,14 +40,17 @@ class Actions extends AbsBase
         update_option($this::GLOBAL_NS.'_options', $this->Plugin->options);
 
         $redirect_to = self_admin_url('/admin.php');
-        $query_args  = array('page' => $this::GLOBAL_NS, $this::GLOBAL_NS.'_updated' => '1');
+        $query_args  = [
+            $this::GLOBAL_NS.'_updated' => '1',
+            'page'                      => $this::GLOBAL_NS,
+        ];
         $redirect_to = add_query_arg(urlencode_deep($query_args), $redirect_to);
 
         wp_redirect($redirect_to);
-        exit; // Stop here after redirect.
+        exit; // Stop here.
     }
 
-    public function restoreDefaultOptions($args)
+    public function restoreDefaultOptions()
     {
         if (!current_user_can($this->Plugin->cap)) {
             return; // Nothing to do.
@@ -57,10 +62,13 @@ class Actions extends AbsBase
         $this->Plugin->options = $this->Plugin->default_options;
 
         $redirect_to = self_admin_url('/admin.php');
-        $query_args  = array('page' => $this::GLOBAL_NS, $this::GLOBAL_NS.'_restored' => '1');
+        $query_args  = [
+             $this::GLOBAL_NS.'_restored' => '1',
+            'page'                        => $this::GLOBAL_NS,
+        ];
         $redirect_to = add_query_arg(urlencode_deep($query_args), $redirect_to);
 
         wp_redirect($redirect_to);
-        exit; // Stop here after redirect.
+        exit; // Stop here.
     }
 }

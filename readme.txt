@@ -96,7 +96,7 @@ See: `/includes/translations/wp-super-snow.pot`
 
 == Upgrade Notice ==
 
-= v151203 =
+= v151204 =
 
 - Now requires PHP v5.4+.
 - Tested for compatibility w/ WordPress v4.3, and 4.4+.

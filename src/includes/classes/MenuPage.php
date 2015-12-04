@@ -1,145 +1,138 @@
 <?php
 namespace WebSharks\WpSuperSnow;
 
-class MenuPages extends AbsBase
+class MenuPage extends AbsBase
 {
     public function __construct(Plugin $Plugin)
     {
         parent::__construct($Plugin);
-    }
 
-    public function options()
-    {
-        echo '<form id="plugin-menu-page" class="plugin-menu-page" method="post" enctype="multipart/form-data"'.
-             ' action="'.esc_attr(add_query_arg(urlencode_deep(array('page' => $this::GLOBAL_NS, '_wpnonce' => wp_create_nonce())), self_admin_url('/admin.php'))).'">'."\n";
+        # Options...
 
-        echo '<div class="plugin-menu-page-heading">'."\n";
+        echo '<form class="plugin-menu-page"'.
+        ' method="post" enctype="multipart/form-data" autocomplete="off" novalidate="novalidate"'.
+        ' action="'.esc_attr(add_query_arg(urlencode_deep(['page' => $this::GLOBAL_NS, '_wpnonce' => wp_create_nonce()]), self_admin_url('/admin.php'))).'">'."\n";
 
-        echo '   <button type="submit">'.__('Save', 'wp-super-snow').' <i class="fa fa-save"></i></button>'."\n";
+        # Notices (if applicable)...
 
-        echo '   <button type="button" class="plugin-menu-page-restore-defaults"'.// Restores default options.
-             '      data-confirmation="'.esc_attr(__('Restore default plugin options? You will lose all of your current settings! Are you absolutely sure about this?', 'wp-super-snow')).'"'.
-             '      data-action="'.esc_attr(add_query_arg(urlencode_deep(array('page' => $this::GLOBAL_NS, '_wpnonce' => wp_create_nonce(), $this::GLOBAL_NS => array('restore_default_options' => '1'))), self_admin_url('/admin.php'))).'">'.
-             '      '.__('Restore', 'wp-super-snow').' <i class="fa fa-ambulance"></i></button>'."\n";
-
-        echo '   <div class="plugin-menu-page-panel-togglers" title="'.esc_attr(__('All Panels', 'wp-super-snow')).'">'."\n";
-        echo '      <button type="button" class="plugin-menu-page-panels-open"><i class="fa fa-chevron-down"></i></button>'."\n";
-        echo '      <button type="button" class="plugin-menu-page-panels-close"><i class="fa fa-chevron-up"></i></button>'."\n";
-        echo '   </div>'."\n";
-
-        echo '   <div class="plugin-menu-page-upsells">'."\n";
-        // echo '      <a href="'.esc_attr(add_query_arg(urlencode_deep(array('page' => $this::GLOBAL_NS, $this::GLOBAL_NS.'_pro_preview' => '1')), self_admin_url('/admin.php'))).'"><i class="fa fa-eye"></i> Preview Pro Features</a>'."\n";
-        // echo '      <a href="http://www.websharks-inc.com/product/wp-super-snow/" target="_blank"><i class="fa fa-heart-o"></i> Pro Upgrade</a>'."\n";
-        echo '      <a href="http://www.websharks-inc.com/r/wp-theme-plugin-donation/" target="_blank"><i class="fa fa-heart-o"></i> Donate (Support the Developer)</a>'."\n";
-        echo '      <a href="http://www.websharks-inc.com/r/wp-super-snow-subscribe/" target="_blank"><i class="fa fa-envelope"></i> WP Super Snow Updates (via Email)</a>'."\n";
-        echo '   </div>'."\n";
-
-        echo '   <img src="'.$this->Plugin->url('/client-s/images/options.png').'" alt="'.esc_attr(__('Plugin Options', 'wp-super-snow')).'" />'."\n";
-
-        echo '</div>'."\n";
-
-        if (!empty($_REQUEST[$this::GLOBAL_NS.'__updated'])) {
-            echo '<div class="plugin-menu-page-notice notice">'."\n";
-            echo '   <i class="fa fa-thumbs-up"></i> '.__('Options updated successfully.', 'wp-super-snow')."\n";
+        if (!empty($_REQUEST[$this::GLOBAL_NS.'_updated'])) {
+            echo '<div class="updated fade">'."\n";
+            echo '  <p>'."\n";
+            echo '      <i class="si si-thumbs-up"></i> '.__('Options updated successfully.', 'wp-super-snow')."\n";
+            echo '  </p>'."\n";
             echo '</div>'."\n";
         }
-        if (!empty($_REQUEST[$this::GLOBAL_NS.'__restored'])) {
-            echo '<div class="plugin-menu-page-notice notice">'."\n";
-            echo '   <i class="fa fa-thumbs-up"></i> '.__('Default options successfully restored.', 'wp-super-snow')."\n";
-            echo '</div>'."\n";
-        }
-        if (!empty($_REQUEST[$this::GLOBAL_NS.'_pro_preview'])) {
-            echo '<div class="plugin-menu-page-notice info">'."\n";
-            echo '<a href="'.add_query_arg(urlencode_deep(array('page' => $this::GLOBAL_NS)), self_admin_url('/admin.php')).'" class="pull-right" style="margin:0 0 15px 25px; font-variant:small-caps; text-decoration:none;">'.__('close', 'wp-super-snow').' <i class="fa fa-eye-slash"></i></a>'."\n";
-            echo '   <i class="fa fa-eye"></i> '.__('<strong>Pro Features (Preview)</strong> ~ New option panels below. Please explore before <a href="http://www.websharks-inc.com/product/wp-super-snow/" target="_blank">upgrading <i class="fa fa-heart-o"></i></a>.<br /><small>NOTE: the free version of WP Super Snow (this LITE version); is more-than-adequate for most sites. Please upgrade only if you desire advanced features or would like to support the developer.</small>', 'wp-super-snow')."\n";
+        if (!empty($_REQUEST[$this::GLOBAL_NS.'_restored'])) {
+            echo '<div class="updated fade">'."\n";
+            echo '  <p>'."\n";
+            echo '   <i class="si si-thumbs-up"></i> '.__('Default options successfully restored.', 'wp-super-snow')."\n";
+            echo '  </p>'."\n";
             echo '</div>'."\n";
         }
         if (!$this->Plugin->options['enable']) {
-            echo '<div class="plugin-menu-page-notice warning">'."\n";
-            echo '   <i class="fa fa-warning"></i> '.__('WP Super Snow is currently disabled; please review options below.', 'wp-super-snow')."\n";
+            echo '<div class="error fade">'."\n";
+            echo '  <p>'."\n";
+            echo '   <i class="si si-info-circle"></i> '.__('<strong>WP Super Snow</strong> is currently disabled. Please review options below.', 'wp-super-snow')."\n";
+            echo '  </p>'."\n";
             echo '</div>'."\n";
         }
-        echo '<div class="plugin-menu-page-body">'."\n";
+        # Heading...
 
-        echo '<div class="plugin-menu-page-panel">'."\n";
+        echo '<div class="-heading">'."\n";
 
-        echo '   <div class="plugin-menu-page-panel-heading'.((!$this->Plugin->options['enable']) ? ' open' : '').'">'."\n";
-        echo '      <i class="fa fa-flag"></i> '.__('Enable/Disable', 'wp-super-snow')."\n";
+        echo '   <button type="button" class="-restore button"'.// Restores default options.
+             '      data-confirmation="'.esc_attr(__('Restore default plugin options? You will lose all of your current settings! Are you absolutely sure about this?', 'wp-super-snow')).'"'.
+             '      data-action="'.esc_attr(add_query_arg(urlencode_deep(['page' => $this::GLOBAL_NS, '_wpnonce' => wp_create_nonce(), $this::GLOBAL_NS => ['restoreDefaultOptions' => uniqid('', true)]]), self_admin_url('/admin.php'))).'">'.
+             '      '.__('Restore Default Options', 'wp-super-snow').' <i class="si si-ambulance"></i></button>'."\n";
+
+        echo '   <div class="-upsells">'."\n";
+        echo '      <a href="http://websharks-inc.com/r/wp-theme-plugin-donation/" target="_blank"><i class="si si-heart-o"></i> '.__('Donate (Support the Developer)', 'wp-super-snow').'</a>'."\n";
+        echo '      <a href="http://websharks-inc.com/r/wp-super-snow-subscribe/" target="_blank"><i class="si si-envelope"></i> '.__('WP Super Snow Updates (via Email)', 'wp-super-snow').'</a>'."\n";
         echo '   </div>'."\n";
 
-        echo '   <div class="plugin-menu-page-panel-body'.((!$this->Plugin->options['enable']) ? ' open' : '').' clearfix">'."\n";
-        echo '      <p style="float:right; margin:-5px 0 0 0; font-weight:bold;"><img src="'.esc_attr($this->Plugin->url('/client-s/images/flakes-icon.png')).'" style="vertical-align:middle;" /> = <i class="fa fa-smile-o fa-4x"></i> happy visitors<em>!</em></p>'."\n";
-        echo '      <p style="margin-top:1em;"><label class="switch-primary"><input type="radio" name="'.esc_attr($this::GLOBAL_NS).'[save_options][enable]" value="1"'.checked($this->Plugin->options['enable'], '1', false).' /> <i class="fa fa-magic fa-flip-horizontal"></i> '.__('Yes, enable WP Super Snow!', 'wp-super-snow').'</label> &nbsp;&nbsp;&nbsp; <label><input type="radio" name="'.esc_attr($this::GLOBAL_NS).'[save_options][enable]" value="0"'.checked($this->Plugin->options['enable'], '0', false).' /> '.__('No, disable.', 'wp-super-snow').'</label></p>'."\n";
-        echo '      <hr />'."\n";
-        echo '      <p class="info" style="display:block;">'.__('<strong>HUGE Time-Saver:</strong> Approx. 95% of all WordPress sites running WP Super Snow, simply enable it here; and that\'s it :-) <strong>No further configuration is necessary (really).</strong> All of the other options (down below) are already tuned for the BEST performance on a typical WordPress installation. Simply enable WP Super Snow here and click "Save All Changes". If you get any warnings please follow the instructions given. Otherwise, you\'re good <i class="fa fa-smile-o"></i>. This plugin is designed to run just fine like it is. Take it for a spin right away; you can always fine-tune things later if you deem necessary.', 'wp-super-snow').'</p>'."\n";
+        echo '   <img class="-logo" src="'.$this->Plugin->url('/src/client-s/images/options.png').'" />'."\n";
+
+        echo '</div>'."\n";
+
+        # Body and container...
+
+        echo '<div class="-body postbox-container">'."\n";
+        echo '<div class="-container metabox-holder">'."\n";
+
+        # Config. panels using postbox classes...
+
+        echo '<div class="-panel postbox'.($this->Plugin->options['enable'] ? ' closed' : '').'" id="'.esc_attr(str_replace('.', '', uniqid('pb-', true))).'">'."\n";
+        echo '  <div class="-toggler handlediv"><br /></div>'."\n";
+
+        echo '   <h3 class="-heading hndle">'."\n";
+        echo '      <i class="si si-flag"></i> '.__('Enable/Disable', 'wp-super-snow')."\n";
+        echo '   </h3>'."\n";
+
+        echo '   <div class="-body inside">'."\n";
+        echo '      <p><label class="-enable"><input type="radio" name="'.esc_attr($this::GLOBAL_NS).'[saveOptions][enable]" value="1"'.checked($this->Plugin->options['enable'], '1', false).' /> '.__('Yes, enable WP Super Snow!', 'wp-super-snow').'</label> &nbsp;&nbsp;&nbsp; <label><input type="radio" name="'.esc_attr($this::GLOBAL_NS).'[saveOptions][enable]" value="0"'.checked($this->Plugin->options['enable'], '0', false).' /> '.__('No, disable.', 'wp-super-snow').'</label></p>'."\n";
+        echo '      <p class="-info">'.__('<strong>HUGE Time-Saver:</strong> Approx. 95% of all WordPress sites running WP Super Snow, simply enable it here and that\'s it :-) <strong>No further configuration is necessary (really).</strong> All of the other options are already tuned for the BEST performance on a typical WordPress site. Simply enable WP Super Snow here and click "Save All Changes". If you get any warnings please follow the instructions given. Otherwise, you\'re good. <i class="si si-smile-o"></i> This plugin is designed to run just fine like it is. Take it for a spin right away. You can always fine-tune things later if you deem necessary.', 'wp-super-snow').'</p>'."\n";
         echo '   </div>'."\n";
 
         echo '</div>'."\n";
 
-        echo '<div class="plugin-menu-page-panel">'."\n";
+        echo '<div class="-panel postbox closed" id="'.esc_attr(str_replace('.', '', uniqid('pb-', true))).'">'."\n";
+        echo '  <div class="-toggler handlediv"><br /></div>'."\n";
 
-        echo '   <div class="plugin-menu-page-panel-heading">'."\n";
-        echo '      <i class="fa fa-shield"></i> '.__('Deactivation Safeguards', 'wp-super-snow')."\n";
-        echo '   </div>'."\n";
+        echo '   <h3 class="-heading hndle">'."\n";
+        echo '      <i class="si si-cogs"></i> '.__('Virtual Snow Blower', 'wp-super-snow')."\n";
+        echo '   </h3>'."\n";
 
-        echo '   <div class="plugin-menu-page-panel-body clearfix">'."\n";
-        echo '      <i class="fa fa-shield fa-4x" style="float:right; margin: 0 0 0 25px;"></i>'."\n";
-        echo '      <h3>'.__('Uninstall on Deactivation; or Safeguard Options?', 'wp-super-snow').'</h3>'."\n";
-        echo '      <p>'.__('<strong>Tip:</strong> By default, if you deactivate WP Super Snow from the plugins menu in WordPress; nothing is lost. However, if you want to uninstall WP Super Snow you should set this to <code>Yes</code> and <strong>THEN</strong> deactivate it from the plugins menu in WordPress. This way WP Super Snow will erase your options for the plugin. It erases itself from existence completely.', 'wp-super-snow').'</p>'."\n";
-        echo '      <p><select name="'.esc_attr($this::GLOBAL_NS).'[save_options][uninstall_on_deactivation]">'."\n";
-        echo '            <option value="0"'.selected($this->Plugin->options['uninstall_on_deactivation'], '0', false).'>'.__('If I deactivate WP Super Snow please safeguard my options (recommended).', 'wp-super-snow').'</option>'."\n";
-        echo '            <option value="1"'.selected($this->Plugin->options['uninstall_on_deactivation'], '1', false).'>'.__('Yes, uninstall (completely erase) WP Super Snow on deactivation.', 'wp-super-snow').'</option>'."\n";
-        echo '         </select></p>'."\n";
-        echo '   </div>'."\n";
-
-        echo '</div>'."\n";
-
-        echo '<div class="plugin-menu-page-panel">'."\n";
-
-        echo '   <div class="plugin-menu-page-panel-heading">'."\n";
-        echo '      <i class="fa fa-gears"></i> '.__('Virtual Snow Blower', 'wp-super-snow')."\n";
-        echo '   </div>'."\n";
-
-        echo '   <div class="plugin-menu-page-panel-body clearfix">'."\n";
+        echo '   <div class="-body inside">'."\n";
         echo '      <table style="width:100%;">'."\n";
         echo '         <tbody>'."\n";
         echo '            <tr>'."\n";
+
         echo '               <td style="width:100%; vertical-align:top;">'."\n";
-        echo '                  <i class="fa fa-gears fa-4x" style="float:right; margin: 0 0 0 25px;"></i>'."\n";
-        echo '                  <button type="button" class="plugin-virtual-snow-blower-preview" style="float:right; margin: 0 0 0 25px;"><i class="fa fa-eye"></i> '.__('Preview', 'wp-super-snow').'</button>'."\n";
-        echo '                  <h3>'.__('Virtual Snow Blower (Advanced Configuration)', 'wp-super-snow').'</h3>'."\n";
-        echo '                  <p>'.__('The options below support an advanced configuration of WP Super Snow. The defaults work just fine; but you might like to change things up just a bit. It\'s fun. <i class="fa fa-smile-o"></i>', 'wp-super-snow').'</p>'."\n";
+        echo '                  <button type="button" class="-vsb-button button"><i class="si si-eye"></i> '.__('Preview', 'wp-super-snow').'</button>'."\n";
+
+        echo '                  <h3>'.__('The Virtual Snow Blower allows for an advanced configuration.', 'wp-super-snow').'</h3>'."\n";
+        echo '                  <p>'.__('The defaults work just fine, but you might like to change things up just a bit. It\'s fun! <i class="si si-smile-o"></i>', 'wp-super-snow').'</p>'."\n";
+
         echo '                  <hr />'."\n";
+
         echo '                  <h3>'.__('WP Super Snow Container', 'wp-super-snow').'</h3>'."\n";
-        echo '                  <p>'.__('This is almost always the <code>body</code> tag. However, you might decide to change this if you have a specific area of your site that WP Super Snow should be restricted to. Note: if you DO change this, please use a CSS selector expression for jQuery; e.g. <code>#my_div</code>', 'wp-super-snow').'</p>'."\n";
-        echo '                  <p><input type="text" name="'.esc_attr($this::GLOBAL_NS).'[save_options][container]" value="'.esc_attr($this->Plugin->options['container']).'" /></p>'."\n";
+        echo '                  <p>'.__('This is almost always the <code>body</code> tag. However, you might decide to change this if you have a specific area of your site that WP Super Snow should be restricted to. Note: if you DO change this, please use a CSS selector expression for jQuery; e.g., <code>#my_div</code>. You can apply snow to multiple elements using comma-delimited format; e.g., <code>#my_div,.snow-here</code>', 'wp-super-snow').'</p>'."\n";
+        echo '                  <p><input type="text" name="'.esc_attr($this::GLOBAL_NS).'[saveOptions][container]" value="'.esc_attr($this->Plugin->options['container']).'" /></p>'."\n";
+
         echo '                  <h3>'.__('z-Index for all Snowflakes', 'wp-super-snow').'</h3>'."\n";
-        echo '                  <p>'.__('This is the layered stack order for all snowflakes; e.g. <code>style="z-index:999999;"</code>. Generally speaking, it\'s best to keep snowflakes on top of everything else. See also: <a href="http://www.w3schools.com/cssref/pr_pos_z-index.asp" target="_blank">z-index @ W3Schools</a> if you\'re not familiar with this term.', 'wp-super-snow').'</p>'."\n";
-        echo '                  <p><input type="text" name="'.esc_attr($this::GLOBAL_NS).'[save_options][z_index]" value="'.esc_attr($this->Plugin->options['z_index']).'" /></p>'."\n";
-        echo '                  <h3>'.__('Snowflake Images (a Line-Delimited List Please)', 'wp-super-snow').'</h3>'."\n";
-        echo '                  <p>'.__('If you\'d like to add your own images; or replace the <a href="'.esc_attr($this->Plugin->url('/client-s/images/graphics.zip')).'">default snowflake graphics</a> — you can do that here. We recommend alpha transparent PNG files approx 100 x 100 pixels. There is no limit on the number of graphics (one image path per line please).', 'wp-super-snow').'</p>'."\n";
-        echo '                  <p style="margin-bottom:0;"><textarea name="'.esc_attr($this::GLOBAL_NS).'[save_options][flakes]" spellcheck="false" class="monospace" rows="3">'.esc_textarea($this->Plugin->options['flakes']).'</textarea></p>'."\n";
-        echo '                  <p class="info" style="margin-top:0;">'.__('<strong>Tip:</strong> images that have the word <code>flake</code> anywhere their URL/path are spinned in a 3D rotation at random (WP Super Snow assumes these are actual snowflake graphics). All other graphics rotate left-to-right and/or right-to-left at random (e.g. compatiblity mode).', 'wp-super-snow').'</p>'."\n";
+        echo '                  <p>'.__('This is the layered stack order for all snowflakes; e.g., <code>style="z-index:999999;"</code>. Generally speaking, it\'s best to keep snowflakes on top of everything else. See also: <a href="http://www.w3schools.com/cssref/pr_pos_z-index.asp" target="_blank">z-index @ W3Schools</a> if you\'re not familiar with this term. The default value of <code>999999</code> puts snow on top of everything else for most sites.', 'wp-super-snow').'</p>'."\n";
+        echo '                  <p><input type="text" name="'.esc_attr($this::GLOBAL_NS).'[saveOptions][z_index]" value="'.esc_attr($this->Plugin->options['z_index']).'" /></p>'."\n";
+
+        echo '                  <h3>'.__('Snowflake Images (Line-Delimited)', 'wp-super-snow').'</h3>'."\n";
+        echo '                  <p>'.__('If you\'d like to add your own images or replace the <a href="'.esc_attr($this->Plugin->url('/src/client-s/images/graphics.zip')).'">default snowflake graphics</a>, you can do that here. We recommend alpha transparent PNG files approx 100x100 pixels. There is no limit on the number of graphics. Just be sure to put ONE on each line. Note: this also allows WP Super Snow to be used for other holiday ideas too; e.g., you could have snowing pumpkins!', 'wp-super-snow').'</p>'."\n";
+        echo '                  <p style="margin-bottom:0;"><textarea name="'.esc_attr($this::GLOBAL_NS).'[saveOptions][flakes]" spellcheck="false" class="monospace" rows="3">'.esc_textarea($this->Plugin->options['flakes']).'</textarea></p>'."\n";
+        echo '                  <p class="-info" style="margin-top:0;">'.__('<strong>Tip:</strong> images that have the word <code>flake</code> anywhere their URL/path are spinned in a 3D rotation at random (WP Super Snow assumes these are actual snowflake graphics). All other graphics rotate left-to-right and/or right-to-left at random (i.e., in compatiblity mode).', 'wp-super-snow').'</p>'."\n";
+
         echo '                  <h3>'.__('Total Snowflakes to Process', 'wp-super-snow').'</h3>'."\n";
-        echo '                  <p>'.__('Snowflakes are processed (animated) in and out of view at random intervals. This setting determines the total number of snowflakes that should ever be processed at the same time. Note: the more snowflakes you process, the slower your site might become.', 'wp-super-snow').'</p>'."\n";
-        echo '                  <p><input type="text" name="'.esc_attr($this::GLOBAL_NS).'[save_options][total_flakes]" value="'.esc_attr($this->Plugin->options['total_flakes']).'" /></p>'."\n";
+        echo '                  <p>'.__('Snowflakes are processed (animated) in and out of view at random intervals. This setting determines the total number of snowflakes that should ever be processed at the same time. However, please be warned! The more snowflakes you process, the slower your site might become!', 'wp-super-snow').'</p>'."\n";
+        echo '                  <p><input type="text" name="'.esc_attr($this::GLOBAL_NS).'[saveOptions][total_flakes]" value="'.esc_attr($this->Plugin->options['total_flakes']).'" /></p>'."\n";
+
         echo '                  <h3>'.__('Max Snowflake Size (in Pixels)', 'wp-super-snow').'</h3>'."\n";
-        echo '                  <p>'.__('Snowflake sizes are always random. However, you can control the randomizer (to a certain extent) by defining the largest possible size. Note: the default snowflake graphics that come with WP Super Snow will support up to <code>100</code> pixels (before distortion occurs).', 'wp-super-snow').'</p>'."\n";
-        echo '                  <p><input type="text" name="'.esc_attr($this::GLOBAL_NS).'[save_options][max_size]" value="'.esc_attr($this->Plugin->options['max_size']).'" /></p>'."\n";
+        echo '                  <p>'.__('Snowflake sizes are always random. However, you can control the randomizer (to a certain extent) by defining the largest possible size. The default snowflake graphics that come with WP Super Snow will support up to <code>100</code> pixels (before distortion occurs).', 'wp-super-snow').'</p>'."\n";
+        echo '                  <p><input type="text" name="'.esc_attr($this::GLOBAL_NS).'[saveOptions][max_size]" value="'.esc_attr($this->Plugin->options['max_size']).'" /></p>'."\n";
+
         echo '                  <h3>'.__('Max Snowflake Duration (in Seconds)', 'wp-super-snow').'</h3>'."\n";
-        echo '                  <p>'.__('Snowflake animations are always random. However, you can control the randomizer (to a certain extent) by defining the longest possible duration of a falling snowflake. Note: a larger number = a slower speed; a smaller number = faster (e.g. a shorter duration).', 'wp-super-snow').'</p>'."\n";
-        echo '                  <p><input type="text" name="'.esc_attr($this::GLOBAL_NS).'[save_options][max_duration]" value="'.esc_attr($this->Plugin->options['max_duration']).'" /></p>'."\n";
+        echo '                  <p>'.__('Snowflake animations are always random. However, you can control the randomizer (to a certain extent) by defining the longest possible duration of a falling snowflake. A larger number = a slower speed; a smaller number = faster (i.e., a shorter duration).', 'wp-super-snow').'</p>'."\n";
+        echo '                  <p><input type="text" name="'.esc_attr($this::GLOBAL_NS).'[saveOptions][max_duration]" value="'.esc_attr($this->Plugin->options['max_duration']).'" /></p>'."\n";
+
         echo '                  <h3>'.__('Use Snow Flake Transparency Effects?', 'wp-super-snow').'</h3>'."\n";
         echo '                  <p>'.__('Snowflake animations always include transpareny effects. This setting enables/disables some ADDITIONAL snowflake image transparency effects for an enhanced viewing experience in modern browsers (best on dark backgrounds).', 'wp-super-snow').'</p>'."\n";
-        echo '                  <p><select name="'.esc_attr($this::GLOBAL_NS).'[save_options][use_flake_trans]">'."\n";
+        echo '                  <p><select name="'.esc_attr($this::GLOBAL_NS).'[saveOptions][use_flake_trans]">'."\n";
         echo '                        <option value="0"'.selected($this->Plugin->options['use_flake_trans'], '0', false).'>'.__('No, don\'t use image transparency (recommended for improved performance; speedier).', 'wp-super-snow').'</option>'."\n";
         echo '                        <option value="1"'.selected($this->Plugin->options['use_flake_trans'], '1', false).'>'.__('Yes, add image transparency effects (best visual experience).', 'wp-super-snow').'</option>'."\n";
         echo '                     </select></p>'."\n";
         echo '               </td>'."\n";
+
         echo '               <td style="width:1px; vertical-align:top; white-space:nowrap;">'."\n";
-        echo '               <div class="plugin-virtual-snow-blower" style="width:400px; height:400px; margin: 0 0 15px 25px; border-radius:5px; border:1px solid #000000; background:url(\''.esc_attr($this->Plugin->url('/client-s/images/vsb-bg.png')).'\') no-repeat;"></div>'."\n";
-        echo '               <p class="info" style="text-align:center; width:400px; margin:15px 0 0 25px; white-space:normal;">'.__('<strong>Tip:</strong> snowflakes will fall inside this graphic. Please click the Preview button (above) to see changes in configuration.', 'wp-super-snow').'</p>'."\n";
+        echo '                  <div class="-vsb" style="width:400px; height:400px; margin: 0 0 15px 25px; border-radius:5px; border:1px solid #000000; background:url(\''.esc_attr($this->Plugin->url('/src/client-s/images/vsb-bg.png')).'\') no-repeat;"></div>'."\n";
+        echo '                  <p class="info" style="text-align:center; width:400px; margin:15px 0 0 25px; white-space:normal;">'.__('<strong>Tip:</strong> snowflakes will fall inside this graphic. Please click the Preview button (above) to see changes in configuration.', 'wp-super-snow').'</p>'."\n";
         echo '               </td>'."\n";
+
         echo '            </tr>'."\n";
         echo '         </tbody>'."\n";
         echo '      </table>'."\n";
@@ -148,30 +141,36 @@ class MenuPages extends AbsBase
         echo '</div>'."\n";
 
         if (!$this->Plugin->isMultisiteFarmBlog()) {
-            echo '<div class="plugin-menu-page-panel">'."\n";
+            echo '<div class="-panel postbox closed" id="'.esc_attr(str_replace('.', '', uniqid('pb-', true))).'">'."\n";
+            echo '  <div class="-toggler handlediv"><br /></div>'."\n";
 
-            echo '   <div class="plugin-menu-page-panel-heading">'."\n";
-            echo '      <i class="fa fa-cloud"></i> '.__('Forecasting / Conditions', 'wp-super-snow')."\n";
-            echo '   </div>'."\n";
+            echo '   <h3 class="-heading hndle">'."\n";
+            echo '      <i class="si si-cloud"></i> '.__('Forecasting / Conditions', 'wp-super-snow')."\n";
+            echo '   </h3>'."\n";
 
-            echo '   <div class="plugin-menu-page-panel-body clearfix">'."\n";
-            echo '      <span class="fa-stack fa-2x" style="float:right; margin: 0 0 0 25px;"><i class="fa fa-cloud fa-stack-2x"></i><i class="fa fa-code fa-stack-1x fa-inverse"></i></span>'."\n";
-            echo '      <h3>'.__('Have Conditions to Check for?', 'wp-super-snow').'</h3>'."\n";
-            echo '      <p>'.__('By default, WP Super Snow is displayed on every page of your site (but DISABLED for mobile devices; see note below). If there are other conditions you\'d like to satisify before WP Super Snow is loaded (e.g. only load it on certain Posts/Pages; or only between specific dates/times; or only on certain devices); you can specify those conditions here using <a href="http://codex.wordpress.org/Conditional_Tags" target="_blank">Conditional Tags</a>.', 'wp-super-snow').'</p>'."\n";
-            echo '      <table style="width:100%;"><tr><td style="width:1px; font-weight:bold; white-space:nowrap;"><code>if(</code></td><td><input type="text" name="'.esc_attr($this::GLOBAL_NS).'[save_options][conditionals]" value="'.esc_attr($this->Plugin->options['conditionals']).'" /></td><td style="width:1px; font-weight:bold; white-space:nowrap;"><code>)</code></td></tr></table>'."\n";
-            echo '      <p class="info">'.__('<strong>Example:</strong> <code>!wp_is_mobile() && is_page(\'christmas-promo\')</code> e.g. only run on one specific page.', 'wp-super-snow').'</p>'."\n";
-            echo '      <p class="info">'.__('<strong>Example:</strong> <code>!wp_is_mobile() && !is_ssl()</code> e.g. NOT on mobile devices &amp; NOT over HTTPS (SSL).', 'wp-super-snow').'</p>'."\n";
-            echo '      <p class="info">'.sprintf(__('<strong>Example:</strong> <code>!wp_is_mobile() && time() >= strtotime(\'%1$s-12-01\') && time() <= strtotime(\'%1$s-12-31\')</code> e.g. only run in the month of December %1$s.', 'wp-super-snow'), date('Y')).'</p>'."\n";
-            echo '      <p class="info">'.__('<strong>Example:</strong> <code>!wp_is_mobile()</code> e.g. only run on desktops/laptops; NOT on mobile devices. See also: <a href="http://detectmobilebrowsers.com/" target="_blank">DetectMobileBrowsers.com</a>', 'wp-super-snow').'</p>'."\n";
-            echo '      <p class="warning">'.__('<strong>Why disable on mobile devices?</strong> By default, mobile devices are excluded from the snow effect; only because it\'s not good for their CPUs (or their batteries). If your local marketing department insists, "This must work on mobile!" despite being warned of the downsides, you can remove that condition above.', 'wp-super-snow').'</p>'."\n";
+            echo '   <div class="-body inside">'."\n";
+            echo '      <p>'.__('By default, WP Super Snow is displayed on every page of your site. However, it is DISABLED for mobile devices (not good for their CPUs or their batteries). If there are other conditions you\'d like to satisify before WP Super Snow is loaded (e.g., only load it on certain Posts/Pages; or only between specific dates/times; or only on certain devices); you can specify those conditions here using <a href="http://codex.wordpress.org/Conditional_Tags" target="_blank">Conditional Tags</a>.', 'wp-super-snow').'</p>'."\n";
+            echo '      <table style="width:100%;"><tr><td style="width:1px; font-weight:bold; white-space:nowrap;"><code>if(</code></td><td><input type="text" name="'.esc_attr($this::GLOBAL_NS).'[saveOptions][conditionals]" value="'.esc_attr($this->Plugin->options['conditionals']).'" /></td><td style="width:1px; font-weight:bold; white-space:nowrap;"><code>)</code></td></tr></table>'."\n";
+            echo '      <p class="-info">'.__('<strong>Example:</strong> <code>!wp_is_mobile() && is_page(\'christmas-promo\')</code> i.e., only run on one specific page.', 'wp-super-snow').'</p>'."\n";
+            echo '      <p class="-info">'.__('<strong>Example:</strong> <code>!wp_is_mobile() && !is_ssl()</code> i.e., NOT on mobile devices &amp; NOT over HTTPS (SSL).', 'wp-super-snow').'</p>'."\n";
+            echo '      <p class="-info">'.sprintf(__('<strong>Example:</strong> <code>!wp_is_mobile() && time() >= strtotime(\'%1$s-12-01\') && time() <= strtotime(\'%1$s-12-31\')</code> i.e., only run in the month of December %1$s.', 'wp-super-snow'), date('Y')).'</p>'."\n";
+            echo '      <p class="-info">'.__('<strong>Example:</strong> <code>!wp_is_mobile()</code> i.e., only run on desktops/laptops; NOT on mobile devices. See also: <a href="http://detectmobilebrowsers.com/" target="_blank">DetectMobileBrowsers.com</a>', 'wp-super-snow').'</p>'."\n";
+            echo '      <p class="-warning">'.__('<strong>MOBILE DEVICES:</strong> By default, mobile devices are excluded from the snow effect. It\'s not good for their CPUs (or their batteries).', 'wp-super-snow').'</p>'."\n";
             echo '   </div>'."\n";
 
             echo '</div>'."\n";
         }
-        echo '<div class="plugin-menu-page-save">'."\n";
-        echo '   <button type="submit">'.__('Save All Changes', 'wp-super-snow').' <i class="fa fa-save"></i></button>'."\n";
+        # Save and submit button...
+
+        echo '<div class="-save submit">'."\n";
+        echo '   <button type="submit" class="-button button button-primary">'.
+                    __('Save All Changes', 'wp-super-snow').' <i class="si si-floppy-o"></i>'.
+                '</button>'."\n";
         echo '</div>'."\n";
 
+        # Closers.
+
+        echo '</div>'."\n";
         echo '</div>'."\n";
         echo '</form>';
     }

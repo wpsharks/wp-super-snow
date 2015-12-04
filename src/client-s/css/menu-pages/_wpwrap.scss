@@ -1,0 +1,27 @@
+.wpwrap___ {
+  // Placholder.
+}
+
+#wpwrap {
+  position:                   relative;
+
+  &::after {
+    top:                      0;
+    right:                    0;
+    bottom:                   0;
+    left:                     0;
+    z-index:                 -3;
+    position:                 absolute;
+    content:                  '';
+    background:               $bg-color;
+  }
+
+  .updated,
+  .error {
+    margin:                   1.25em 0 1.25em 0.25em;
+
+    &:first-child {
+      margin-top:             2em;
+    }
+  }
+}

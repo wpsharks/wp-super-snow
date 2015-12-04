@@ -19,6 +19,7 @@ $GLOBALS['wp_php_rv'] = '5.4'; // Require PHP vX.x+.
 
 if (require(dirname(__FILE__).'/src/vendor/websharks/wp-php-rv/src/includes/check.php')) {
     require_once dirname(__FILE__).'/src/vendor/autoload.php';
+    new WebSharks\WpSuperSnow\Plugin(__FILE__);
 } else {
     wp_php_rv_notice('WP Super Snow');
 }
