@@ -1,6 +1,6 @@
 <?php
 /*
-Version: 131203
+Version: 151204
 Text Domain: wp-super-snow
 Plugin Name: WP Super Snow
 
@@ -15,12 +15,10 @@ Adds a customizable falling snow effect to any holiday or Christmas site.
 if (!defined('WPINC')) { // MUST have WordPress.
     exit('Do NOT access this file directly: '.basename(__FILE__));
 }
-if (version_compare(PHP_VERSION, '5.3', '<')) {
-    function wp_super_snow_php53_dashboard_notice()
-    {
-        echo __('<div class="error"><p>Plugin NOT active. This version of WP Super Snow requires PHP v5.3+.</p></div>', 'wp-super-snow');
-    }
-    add_action('all_admin_notices', 'wp_super_snow_php53_dashboard_notice');
+$GLOBALS['wp_php_rv'] = '5.4'; // Require PHP vX.x+.
+
+if (require(dirname(__FILE__).'/src/vendor/websharks/wp-php-rv/src/includes/check.php')) {
+    require_once dirname(__FILE__).'/src/vendor/autoload.php';
 } else {
-    require_once dirname(__FILE__).'/wp-super-snow.inc.php';
+    wp_php_rv_notice('WP Super Snow');
 }

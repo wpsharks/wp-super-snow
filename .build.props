@@ -1,0 +1,11 @@
+project_title                = WP Super Snow
+project_org                  = websharks
+project_slug                 = wp-super-snow
+project_ns                   = WebSharks\\WpSuperSnow
+project_sns                  = WpSuperSnow
+
+project_version              = %y%m%d
+project_php_required_version = 5.4
+project_php_up_to_version    = ${php.version}
+project_wp_required_version  = 4.3
+project_wp_up_to_version     = 4.4

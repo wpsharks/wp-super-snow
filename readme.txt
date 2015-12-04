@@ -1,15 +1,15 @@
 === WP Super Snow (Falling Snow, Customizable) ===
 
-Stable tag: 131203
-Requires at least: 3.7
-Tested up to: 3.7.1
+Stable tag: 151204
+Requires at least: 4.3
+Tested up to: 4.4
 Text Domain: wp-super-snow
 
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Contributors: WebSharks, JasWSInc
-Donate link: http://www.websharks-inc.com/r/wp-theme-plugin-donation/
+Donate link: http://websharks-inc.com/r/wp-theme-plugin-donation/
 Tags: snow, christmas snow, falling snow, jsnow, super snow, supersnow, snow effect, christmas snow, holiday snow, jquery snow, snowflake, snow flakes, snow effects, wp snow, let it snow, snowing, snowball, snow balls, christmas, holiday
 
 Customizable falling snow effect for any holiday or Christmas site.
@@ -70,7 +70,7 @@ This plugin requires jQuery (comes w/ WordPress). If you have WordPress, you alr
 
 == License ==
 
-Copyright: © 2013 [WebSharks, Inc.](http://www.websharks-inc.com/bizdev/) (coded in the USA)
+Copyright: © 2013 [WebSharks, Inc.](http://websharks-inc.com/bizdev/) (coded in the USA)
 
 Released under the terms of the [GNU General Public License](http://www.gnu.org/licenses/gpl-2.0.html).
 
@@ -94,16 +94,18 @@ Released under the terms of the [GNU General Public License](http://www.gnu.org/
 This plugin comes with a POT file for easy translation.
 See: `/includes/translations/wp-super-snow.pot`
 
-= Existing Translations =
-
-* **Serbo-Croatian** — by Borisa Djuraskovic <http://www.webhostinghub.com>
-See: `/includes/translations/wp-super-snow-sr_RS.mo`
-
 == Upgrade Notice ==
+
+= v151203 =
+
+- Now requires PHP v5.4+.
+- Tested for compatibility w/ WordPress v4.3, and 4.4+.
+- General cleanup and organizational improvements in code.
+- Back-end UI enhancements.
 
 = v131203 =
 
-Requires PHP v5.3+. The latest version of WP Super Snow requires PHP v5.3 (or higher). For further details, please see: <http://www.websharks-inc.com/product/wp-super-snow/>.
+Now requires PHP v5.3+. For further details, please see: <http://websharks-inc.com/product/wp-super-snow/>.
 
 == Changelog ==
 
