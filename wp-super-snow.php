@@ -12,8 +12,8 @@ Description: Beautiful falling snow plugin for any WordPress holiday or Christma
 
 Adds a customizable falling snow effect to any holiday or Christmas site.
 */
-if (!defined('WPINC')) { // MUST have WordPress.
-    exit('Do NOT access this file directly: '.basename(__FILE__));
+if (!defined('WPINC')) {
+    exit('Do NOT access this file directly.');
 }
 $GLOBALS['wp_php_rv'] = '5.4'; // Require PHP vX.x+.
 

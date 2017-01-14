@@ -1,6 +1,6 @@
 <?php
-if (!defined('WPINC')) { // MUST have WordPress.
-    exit('Do NOT access this file directly: '.basename(__FILE__));
+if (!defined('WPINC')) {
+    exit('Do NOT access this file directly.');
 }
 $GLOBALS['wp_php_rv'] = '5.4'; // Require PHP vX.x+.
 
